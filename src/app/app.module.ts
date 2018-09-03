@@ -1,40 +1,55 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { TableroPage } from '../pages/tablero/tablero';
+import { GiroPage } from '../pages/giro/giro';
+import { ServicioPage } from '../pages/servicio/servicio';
+import { SucursalPage } from '../pages/sucursal/sucursal';
+import { AcercaPage } from '../pages/acerca/acerca';
+import { CalculadoraPage } from '../pages/calculadora/calculadora';
+import { TabsPage } from '../pages/tabs/tabs';
+
+import { ApiProvider } from '../providers/api/api';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    TableroPage,
+    GiroPage,
+    ServicioPage,
+    SucursalPage,
+    AcercaPage,
+    CalculadoraPage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    TableroPage,
+    GiroPage,
+    ServicioPage,
+    SucursalPage,
+    AcercaPage,
+    CalculadoraPage,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiProvider
   ]
 })
+
 export class AppModule {}
