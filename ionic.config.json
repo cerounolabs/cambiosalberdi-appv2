@@ -1,0 +1,7 @@
+{
+  "name": "CambiosAlberdiSA",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
