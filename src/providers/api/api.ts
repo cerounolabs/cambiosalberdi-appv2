@@ -10,12 +10,15 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ApiProvider {
 
+  JSONApi;
+
   constructor(public http: HttpClient) {
     console.log('constructor API');
   }
 
   getCotizacion() {
     console.log('getCotizacion API');
-    return this.http.get('https://www.cerouno.me/classificatae/public/api/v1/700');
+    console.log(this.JSONApi.asuncion);
+    return this.http.get('http://cambiosalberdi.com/ws/getCotizaciones.json');
   }
 }

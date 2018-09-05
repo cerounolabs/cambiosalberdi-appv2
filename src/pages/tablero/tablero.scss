@@ -4,29 +4,27 @@ page-tablero {
         margin-bottom: 2px;
     }
 
-    ion-col p.cotizacion-normal{
+    .cotizacion-normal{
         color: #000000;
         background: rgba(224, 224, 224, 0.5);
         text-align: center;
-        padding: 10px;
+        padding: 10px 0px !important;
         font-weight: bold;
-        margin: 0px;
-        height: 100%;
     }
 
-    ion-col p.cotizacion-baja{
+    .cotizacion-baja{
         color: #00944C;
         background: rgba(204, 255, 204, 0.5);
         text-align: center;
-        padding: 10px;
+        padding: 10px 0px !important;
         font-weight: bold;
     }
 
-    ion-col p.cotizacion-sube{
+    .cotizacion-sube{
         color: #990000;
         background: rgba(254, 204, 204, 0.5);
         text-align: center;
-        padding: 10px;
+        padding: 10px 0px !important;
         font-weight: bold;
     }
 

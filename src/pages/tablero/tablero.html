@@ -40,57 +40,35 @@
   <div [ngSwitch]="sucursalSegment">
     <ion-list *ngSwitchCase="'ASU'">
       <ion-grid>
-        <ion-row align-items-center>
-          <ion-col col-2><img src="assets/flag/dolar_1.png"/></ion-col>
-          <ion-col col-4>Dólar</ion-col>
-          <ion-col col-3><p class="cotizacion-sube">5.632</p></ion-col>
-          <ion-col col-3><p class="cotizacion-baja">5.632</p></ion-col>
-        </ion-row>
-        <ion-row align-items-center>
-          <ion-col col-2><img src="assets/flag/real_1.png"/></ion-col>
-          <ion-col col-4>Real</ion-col>
-          <ion-col col-3><p class="cotizacion-normal">5.632</p></ion-col>
-          <ion-col col-3><p class="cotizacion-baja">5.632</p></ion-col>
-        </ion-row>
-        <ion-row align-items-center>
-          <ion-col col-2><img src="assets/flag/euro_1.png"/></ion-col>
-          <ion-col col-4>EURO</ion-col>
-          <ion-col col-3><p class="cotizacion-sube">5.632</p></ion-col>
-          <ion-col col-3><p class="cotizacion-baja">5.632</p></ion-col>
-        </ion-row>
-        <ion-row align-items-center>
-          <ion-col col-2><img src="assets/flag/peso_argentino_1.png"/></ion-col>
-          <ion-col col-4>Peso</ion-col>
-          <ion-col col-3><p class="cotizacion-sube">5.632</p></ion-col>
-          <ion-col col-3><p class="cotizacion-baja">5.632</p></ion-col>
-        </ion-row>
-        <ion-row align-items-center>
-          <ion-col col-2><img src="assets/flag/real_1.png"/></ion-col>
-          <ion-col col-4>Dólar x Real</ion-col>
-          <ion-col col-3><p class="cotizacion-sube">5.632</p></ion-col>
-          <ion-col col-3><p class="cotizacion-baja">5.632</p></ion-col>
-        </ion-row>
-        <ion-row align-items-center>
-          <ion-col col-2><img src="assets/flag/euro_1.png"/></ion-col>
-          <ion-col col-4>Dólar x EURO</ion-col>
-          <ion-col col-3><p class="cotizacion-sube">5.632</p></ion-col>
-          <ion-col col-3><p class="cotizacion-baja">5.632</p></ion-col>
-        </ion-row>
-        <ion-row align-items-center>
-          <ion-col col-2><img src="assets/flag/peso_argentino_1.png"/></ion-col>
-          <ion-col col-4>Dólar x Peso</ion-col>
-          <ion-col col-3><p class="cotizacion-sube">5.632</p></ion-col>
-          <ion-col col-3><p class="cotizacion-baja">5.632</p></ion-col>
+        <ion-row align-items-center *ngFor="let item of ASUJson">
+          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima"><img src="assets/flag/{{item.img}}" /></ion-col>
+          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom"> {{item.moneda}}</ion-col>
+          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" class="cotizacion-sube">{{item.compra}}</ion-col>
+          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" class="cotizacion-baja">{{item.venta}}</ion-col>
         </ion-row>
       </ion-grid>
     </ion-list>
 
     <ion-list *ngSwitchCase="'VM'">
-
+      <ion-grid>
+        <ion-row align-items-center *ngFor="let item of VMJson">
+          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima"><img src="assets/flag/{{item.img}}" /></ion-col>
+          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom"> {{item.moneda}}</ion-col>
+          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" class="cotizacion-sube">{{item.compra}}</ion-col>
+          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" class="cotizacion-baja">{{item.venta}}</ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-list>
 
     <ion-list *ngSwitchCase="'CDE'">
-
+      <ion-grid>
+        <ion-row align-items-center *ngFor="let item of CDEJson">
+          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima"><img src="assets/flag/{{item.img}}" /></ion-col>
+          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom"> {{item.moneda}}</ion-col>
+          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" class="cotizacion-sube">{{item.compra}}</ion-col>
+          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" class="cotizacion-baja">{{item.venta}}</ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-list>
   
     <ion-list *ngSwitchCase="'SDG'">
