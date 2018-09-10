@@ -42,7 +42,9 @@ $colors: (
   alberdi:    #15A346
 );
 
-//iOS
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
 $toolbar-ios-background: #15A346;
 $toolbar-ios-border-color: #2d4837;
 $toolbar-ios-button-color: #ffffff;
@@ -50,8 +52,14 @@ $toolbar-ios-title-text-color: #15A346;
 $toolbar-ios-text-color: #ffffff;
 $toolbar-ios-active-color: #ffffff;
 $toolbar-ios-inactive-color: #ffffff;
+$tabs-ios-tab-icon-color-active: #15A346;
+$tabs-ios-tab-text-color-active: #15A346;
+$toolbar-ios-title-text-color: #ffffff;
 
-//android
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
 $toolbar-md-background: #15A346;
 $toolbar-md-border-color: #2d4837;
 $toolbar-md-button-color: #ffffff;
@@ -59,9 +67,14 @@ $toolbar-md-title-text-color: #15A346;
 $toolbar-md-text-color: #ffffff;
 $toolbar-md-active-color: #ffffff;
 $toolbar-md-inactive-color: #ffffff;
+$tabs-md-tab-icon-color-active: #15A346;
+$tabs-md-tab-text-color-active: #15A346;
+$toolbar-md-title-text-color:  #ffffff;
 
 
-//windows
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
 $toolbar-wp-background: #15A346;
 $toolbar-wp-border-color: #2d4837;
 $toolbar-wp-button-color: #ffffff;
@@ -69,44 +82,9 @@ $toolbar-wp-title-text-color: #15A346;
 $toolbar-wp-text-color: #ffffff;
 $toolbar-wp-active-color: #ffffff;
 $toolbar-wp-inactive-color: #ffffff;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$toolbar-ios-title-text-color: #ffffff;
-$toolbar-md-title-text-color:  #ffffff;
+$tabs-wp-tab-icon-color-active: #15A346;
+$tabs-wp-tab-text-color-active: #15A346;
 $toolbar-wp-title-text-color:  #ffffff;
-
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
-
-
-
-
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
-
-
-
-
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
-
-
 
 
 // App Theme

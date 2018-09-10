@@ -100,6 +100,12 @@ export class TableroPage {
        "compra" : "0",
        "venta"  : "0"
       },
+      {"id"     : "asuncion_dolar_real_cheque",
+       "moneda" : "D\u00f3lar Cheque x Real",
+       "img"    : "dolar.png",
+       "compra" : "4,240",
+       "venta"  : "4,300"
+      },
       {"id"     : "asuncion_timer",
        "moneda" : "\u00daltima Actualizaci\u00f3n",
        "img"    : "timer.png",
@@ -154,7 +160,13 @@ export class TableroPage {
        "moneda" : "D\u00f3lar Cheque",
        "img"    : "dolar.png",
        "compra" : "0",
-       "venta"  : "0"
+       "venta"  : "5.850"
+      },
+      {"id"     : "villamorra_dolar_real_cheque",
+       "moneda" : "D\u00f3lar Cheque x Real",
+       "img"    : "dolar.png",
+       "compra" : "4,240",
+       "venta"  : "4,300"
       },
       {"id"     : "villamorra_timer",
        "moneda" : "\u00daltima Actualizaci\u00f3n",
@@ -209,8 +221,14 @@ export class TableroPage {
       {"id"     : "ciudadeste_dolar_cheque",
        "moneda" : "D\u00f3lar Cheque",
        "img"    : "dolar.png",
-       "compra" : "0",
-       "venta"  : "0"
+       "compra" : "5.810",
+       "venta"  : "5.850"
+      },
+      {"id"     : "ciudadesta_dolar_real_cheque",
+       "moneda" : "D\u00f3lar Cheque x Real",
+       "img"    : "dolar.png",
+       "compra" : "4,240",
+       "venta"  : "4,300"
       },
       {"id"     : "ciudadeste_timer",
        "moneda" : "\u00daltima Actualizaci\u00f3n",
@@ -248,6 +266,7 @@ export class TableroPage {
 
     this.animationImage('asuncion');
     this.animationExchange('asuncion', '_dolar_com', 'cotizacion-sube');
+
   }
 
   ionViewCanLeave() {
@@ -283,6 +302,10 @@ export class TableroPage {
     let beforeIma_3 = 'assets/flag/dolar.png';
     let afterIma_3  = 'assets/flag/peso.png';
 
+    let auxIma_4    = '';
+    let beforeIma_4 = 'assets/flag/dolar.png';
+    let afterIma_4  = 'assets/flag/real.png';
+
     setInterval(function(){
       auxIma_1    = beforeIma_1;
       document.getElementById(ciudadView + '_dolar_real_ima').firstElementChild.setAttribute('src', beforeIma_1);
@@ -298,6 +321,11 @@ export class TableroPage {
       document.getElementById(ciudadView + '_dolar_peso_ima').firstElementChild.setAttribute('src', beforeIma_3);
       beforeIma_3 = afterIma_3;
       afterIma_3  = auxIma_3;
+
+      auxIma_4    = beforeIma_4;
+      document.getElementById(ciudadView + '_dolar_real_cheque_ima').firstElementChild.setAttribute('src', beforeIma_4);
+      beforeIma_4 = afterIma_4;
+      afterIma_4  = auxIma_4;
     }, 1500);
   }
 
