@@ -41,10 +41,10 @@
     <ion-list *ngSwitchCase="'ASU'">
       <ion-grid>
         <ion-row align-items-center *ngFor="let item of ASUJson">
-          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima"><img src="assets/flag/{{item.img}}" /></ion-col>
-          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom"> {{item.moneda}}</ion-col>
-          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" class="cotizacion-sube">{{item.compra}}</ion-col>
-          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" class="cotizacion-baja">{{item.venta}}</ion-col>
+          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima" *ngIf="item.id !== 'asuncion_timer'"><img src="assets/flag/{{item.img}}" /></ion-col>
+          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom" *ngIf="item.id !== 'asuncion_timer'"> {{item.moneda}}</ion-col>
+          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" *ngIf="item.id !== 'asuncion_timer'" class="cotizacion-normal">{{item.compra}}</ion-col>
+          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" *ngIf="item.id !== 'asuncion_timer'" class="cotizacion-normal">{{item.venta}}</ion-col>
         </ion-row>
       </ion-grid>
     </ion-list>
@@ -52,10 +52,10 @@
     <ion-list *ngSwitchCase="'VM'">
       <ion-grid>
         <ion-row align-items-center *ngFor="let item of VMJson">
-          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima"><img src="assets/flag/{{item.img}}" /></ion-col>
-          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom"> {{item.moneda}}</ion-col>
-          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" class="cotizacion-sube">{{item.compra}}</ion-col>
-          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" class="cotizacion-baja">{{item.venta}}</ion-col>
+          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima" *ngIf="item.id !== 'villamorra_timer'"><img src="assets/flag/{{item.img}}" /></ion-col>
+          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom" *ngIf="item.id !== 'villamorra_timer'"> {{item.moneda}}</ion-col>
+          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" *ngIf="item.id !== 'villamorra_timer'" class="cotizacion-normal">{{item.compra}}</ion-col>
+          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" *ngIf="item.id !== 'villamorra_timer'" class="cotizacion-normal">{{item.venta}}</ion-col>
         </ion-row>
       </ion-grid>
     </ion-list>
@@ -63,10 +63,10 @@
     <ion-list *ngSwitchCase="'CDE'">
       <ion-grid>
         <ion-row align-items-center *ngFor="let item of CDEJson">
-          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima"><img src="assets/flag/{{item.img}}" /></ion-col>
-          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom"> {{item.moneda}}</ion-col>
-          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" class="cotizacion-sube">{{item.compra}}</ion-col>
-          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" class="cotizacion-baja">{{item.venta}}</ion-col>
+          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima" *ngIf="item.id !== 'ciudadeste_timer'"><img src="assets/flag/{{item.img}}" /></ion-col>
+          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom" *ngIf="item.id !== 'ciudadeste_timer'"> {{item.moneda}}</ion-col>
+          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" *ngIf="item.id !== 'ciudadeste_timer'" class="cotizacion-normal">{{item.compra}}</ion-col>
+          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" *ngIf="item.id !== 'ciudadeste_timer'" class="cotizacion-normal">{{item.venta}}</ion-col>
         </ion-row>
       </ion-grid>
     </ion-list>

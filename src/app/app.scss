@@ -18,3 +18,11 @@
 .container{
     background-color: #d9d9d9;
 }
+
+.tabs-wp .tab-button[aria-selected="true"]{
+    border-bottom-color: #15A346;
+}
+
+.tabs-wp .tab-button[aria-selected="true"] {
+    color: #15A346;
+}
