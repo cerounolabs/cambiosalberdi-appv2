@@ -1,8 +1,11 @@
-import { Component, ViewChild, Renderer2, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
 
 import { CalculadoraPage } from '../calculadora/calculadora';
 import { ApiProvider } from '../../providers/api/api';
+import { PopoverController} from 'ionic-angular/components/popover/popover-controller';
+import { PopoverComponent } from '../../components/popover/popover';
+
 /**
  * Generated class for the TableroPage page.
  *
@@ -18,331 +21,191 @@ import { ApiProvider } from '../../providers/api/api';
 })
 
 export class TableroPage {
-  @ViewChild('asuncion_dolar_ima', {read: ElementRef}) ASUDolar_ima : ElementRef;
-  @ViewChild('asuncion_dolar_com', {read: ElementRef}) ASUDolar_com : ElementRef;
-  @ViewChild('asuncion_dolar_ven', {read: ElementRef}) ASUDolar_ven : ElementRef;
-  @ViewChild('asuncion_real_ima', {read: ElementRef}) ASUReal_ima : ElementRef;
-  @ViewChild('asuncion_real_com', {read: ElementRef}) ASUReal_com : ElementRef;
-  @ViewChild('asuncion_real_ven', {read: ElementRef}) ASUReal_ven : ElementRef;
-  @ViewChild('asuncion_euro_ima', {read: ElementRef}) ASUEuro_ima : ElementRef;
-  @ViewChild('asuncion_euro_com', {read: ElementRef}) ASUEuro_com : ElementRef;
-  @ViewChild('asuncion_euro_ven', {read: ElementRef}) ASUEuro_ven : ElementRef;
-  @ViewChild('asuncion_peso_ima', {read: ElementRef}) ASUPeso_ima : ElementRef;
-  @ViewChild('asuncion_peso_com', {read: ElementRef}) ASUPeso_com : ElementRef;
-  @ViewChild('asuncion_peso_ven', {read: ElementRef}) ASUPeso_ven : ElementRef;
-  @ViewChild('asuncion_dolar_real_ima', {read: ElementRef}) ASUDoRe_ima : ElementRef;
-  @ViewChild('asuncion_dolar_real_com', {read: ElementRef}) ASUDoRe_com : ElementRef;
-  @ViewChild('asuncion_dolar_real_ven', {read: ElementRef}) ASUDoRe_ven : ElementRef;
-  @ViewChild('asuncion_dolar_euro_ima', {read: ElementRef}) ASUDoEu_ima : ElementRef;
-  @ViewChild('asuncion_dolar_euro_com', {read: ElementRef}) ASUDoEu_com : ElementRef;
-  @ViewChild('asuncion_dolar_euro_ven', {read: ElementRef}) ASUDoEu_ven : ElementRef;
-  @ViewChild('asuncion_dolar_peso_ima', {read: ElementRef}) ASUDoPe_ima : ElementRef;
-  @ViewChild('asuncion_dolar_peso_com', {read: ElementRef}) ASUDoPe_com : ElementRef;
-  @ViewChild('asuncion_dolar_peso_ven', {read: ElementRef}) ASUDoPe_ven : ElementRef;
-  @ViewChild('asuncion_dolar_cheque_ima', {read: ElementRef}) ASUDoCh_ima : ElementRef;
-  @ViewChild('asuncion_dolar_cheque_com', {read: ElementRef}) ASUDoCh_com : ElementRef;
-  @ViewChild('asuncion_dolar_cheque_ven', {read: ElementRef}) ASUDoCh_ven : ElementRef;
+  isAndroid: boolean      = false;
+  title: string           = 'Casa Matriz';
+  sucursalSelect : string = 'ASU';
+  updateLast : string     = '00/00/0000 00:00:00';
+  auxIma_1: string        = '';
+  beforeIma_1: string     = 'assets/flag/dolar.png';
+  afterIma_1: string      = 'assets/flag/real.png';
+  auxIma_2: string        = '';
+  beforeIma_2: string     = 'assets/flag/dolar.png';
+  afterIma_2: string      = 'assets/flag/euro.png';
+  auxIma_3: string        = '';
+  beforeIma_3: string     = 'assets/flag/dolar.png';
+  afterIma_3: string      = 'assets/flag/peso.png';
+  auxIma_4: string        = '';
+  beforeIma_4: string     = 'assets/flag/dolar.png';
+  afterIma_4: string      = 'assets/flag/real.png';
 
-  isAndroid: boolean = false;
-  sucursalSegment: string = "ASU";
-  title: string = "Asunción";
-  ASUJson;
-  VMJson;
-  CDEJson;
-
-  JSONApi = {
-    "asuncion" : [
-      {"id"     : "asuncion_dolar",
-       "moneda" : "D\u00f3lar",
-       "img"    : "dolar.png",
-       "compra" : "5.740",
-       "venta"  : "5.765"
-      },
-      {"id"     : "asuncion_real",
-       "moneda" : "Real",
-       "img"    : "real.png",
-       "compra" : "1.365",
-       "venta"  : "1.395"
-      },
-      {"id"     : "asuncion_euro",
-       "moneda" : "Euro",
-       "img"    : "euro.png",
-       "compra" : "6.570",
-       "venta"  : "6.940"
-      },
-      {"id"     : "asuncion_peso",
-       "moneda" : "Peso",
-       "img"    : "peso.png",
-       "compra" : "179",
-       "venta"  : "188"
-      },
-      {"id"     : "asuncion_dolar_real",
-       "moneda" : "D\u00f3lar x Real",
-       "img"    : "dolar.png",
-       "compra" : "4,130",
-       "venta"  : "4,195"
-      },
-      {"id"     : "asuncion_dolar_euro",
-       "moneda" : "D\u00f3lar x Euro",
-       "img"    : "dolar.png",
-       "compra" : "1,145",
-       "venta"  : "1,203"
-      },
-      {"id"     : "asuncion_dolar_peso",
-       "moneda" : "D\u00f3lar x Peso",
-       "img"    : "dolar.png",
-       "compra" : "30,800",
-       "venta"  : "32,000"
-      },
-      {"id"     : "asuncion_dolar_cheque",
-       "moneda" : "D\u00f3lar Cheque",
-       "img"    : "dolar.png",
-       "compra" : "0",
-       "venta"  : "0"
-      },
-      {"id"     : "asuncion_dolar_real_cheque",
-       "moneda" : "D\u00f3lar Cheque x Real",
-       "img"    : "dolar.png",
-       "compra" : "4,240",
-       "venta"  : "4,300"
-      },
-      {"id"     : "asuncion_timer",
-       "moneda" : "\u00daltima Actualizaci\u00f3n",
-       "img"    : "timer.png",
-       "compra" : "23-08-2018",
-       "venta"  : "11:05:03"
-      }
-    ],
-    "villamorra" : [
-      {"id"     : "villamorra_dolar",
-       "moneda" : "D\u00f3lar",
-       "img"    : "dolar.png",
-       "compra" : "5.740",
-       "venta"  : "5.765"
-      },
-      {"id"     : "villamorra_real",
-       "moneda" : "Real",
-       "img"    : "real.png",
-       "compra" : "1.365",
-       "venta"  : "1.395"
-      },
-      {"id"     : "villamorra_euro",
-       "moneda" : "Euro",
-       "img"    : "euro.png",
-       "compra" : "6.570",
-       "venta"  : "6.940"
-      },
-      {"id"     : "villamorra_peso",
-       "moneda" : "Peso",
-       "img"    : "peso.png",
-       "compra" : "179",
-       "venta"  : "188"
-      },
-      {"id"     : "villamorra_dolar_real",
-       "moneda" : "D\u00f3lar x Real",
-       "img"    : "dolar.png",
-       "compra" : "4,130",
-       "venta"  : "4,195"
-      },
-      {"id"     : "villamorra_dolar_euro",
-       "moneda" : "D\u00f3lar x Euro",
-       "img"    : "dolar.png",
-       "compra" : "1,145",
-       "venta"  : "1,203"
-      },
-      {"id"     : "villamorra_dolar_peso",
-       "moneda" : "D\u00f3lar x Peso",
-       "img"    : "dolar.png",
-       "compra" : "30,800",
-       "venta"  : "32,000"
-      },
-      {"id"     : "villamorra_dolar_cheque",
-       "moneda" : "D\u00f3lar Cheque",
-       "img"    : "dolar.png",
-       "compra" : "0",
-       "venta"  : "5.850"
-      },
-      {"id"     : "villamorra_dolar_real_cheque",
-       "moneda" : "D\u00f3lar Cheque x Real",
-       "img"    : "dolar.png",
-       "compra" : "4,240",
-       "venta"  : "4,300"
-      },
-      {"id"     : "villamorra_timer",
-       "moneda" : "\u00daltima Actualizaci\u00f3n",
-       "img"    : "timer.png",
-       "compra" : "23-08-2018",
-       "venta"  : "11:05:03"
-      }
-    ],
-    "ciudaddeleste" : [
-      {"id"     : "ciudadeste_dolar",
-       "moneda" : "D\u00f3lar",
-       "img"    : "dolar.png",
-       "compra" : "5.740",
-       "venta"  : "5.765"
-      },
-      {"id"     : "ciudadeste_real",
-       "moneda" : "Real",
-       "img"    : "real.png",
-       "compra" : "1.365",
-       "venta"  : "1.395"
-      },
-      {"id"     : "ciudadeste_euro",
-       "moneda" : "Euro",
-       "img"    : "euro.png",
-       "compra" : "6.570",
-       "venta"  : "6.940"
-      },
-      {"id"     : "ciudadeste_peso",
-       "moneda" : "Peso",
-       "img"    : "peso.png",
-       "compra" : "179",
-       "venta"  : "188"
-      },
-      {"id"     : "ciudadeste_dolar_real",
-       "moneda" : "D\u00f3lar x Real",
-       "img"    : "dolar.png",
-       "compra" : "4,130",
-       "venta"  : "4,195"
-      },
-      {"id"     : "ciudadeste_dolar_euro",
-       "moneda" : "D\u00f3lar x Euro",
-       "img"    : "dolar.png",
-       "compra" : "1,145",
-       "venta"  : "1,203"
-      },
-      {"id"     : "ciudadeste_dolar_peso",
-       "moneda" : "D\u00f3lar x Peso",
-       "img"    : "dolar.png",
-       "compra" : "30,800",
-       "venta"  : "32,000"
-      },
-      {"id"     : "ciudadeste_dolar_cheque",
-       "moneda" : "D\u00f3lar Cheque",
-       "img"    : "dolar.png",
-       "compra" : "5.810",
-       "venta"  : "5.850"
-      },
-      {"id"     : "ciudadesta_dolar_real_cheque",
-       "moneda" : "D\u00f3lar Cheque x Real",
-       "img"    : "dolar.png",
-       "compra" : "4,240",
-       "venta"  : "4,300"
-      },
-      {"id"     : "ciudadeste_timer",
-       "moneda" : "\u00daltima Actualizaci\u00f3n",
-       "img"    : "timer.png",
-       "compra" : "23-08-2018",
-       "venta"  : "11:05:03"
-      }
-    ]
-  };
+  imageInterval;
+  loadingInterval;
+  loadingSpinner;
+  JSONData;
+  JSONApi;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, public apiJSON: ApiProvider, private renderer: Renderer2 ) {
-    console.log('constructor TableroPage');
-
+  constructor(
+    public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apiJSON: ApiProvider, public loadingCtrl: LoadingController, public popoverCtrl: PopoverController) {
     this.isAndroid = platform.is('android');
   }
 
   ionViewCanEnter() {
-    console.log('ionViewCanEnter TableroPage');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TableroPage');
-
-    this.ASUJson  = this.JSONApi.asuncion;
-    this.VMJson   = this.JSONApi.asuncion;
-    this.CDEJson  = this.JSONApi.asuncion;
+    this.getData(this.sucursalSelect);
   }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter TableroPage');
+    this.loadingInterval = setInterval(() => {
+      this.loadingInit();
+    }, 300000);
   }
 
   ionViewDidEnter() {
-    console.log('ionViewDidEnter TableroPage');
-
-    this.animationImage('asuncion');
-    this.animationExchange('asuncion', '_dolar_com', 'cotizacion-sube');
-
+    this.imageInterval = setInterval(() => {
+      this.auxIma_1    = this.beforeIma_1;
+      document.getElementById('dolar_real_ima').firstElementChild.setAttribute('src', this.beforeIma_1);
+      this.beforeIma_1 = this.afterIma_1;
+      this.afterIma_1  = this.auxIma_1;
+  
+      this.auxIma_2    = this.beforeIma_2;
+      document.getElementById('dolar_euro_ima').firstElementChild.setAttribute('src', this.beforeIma_2);
+      this.beforeIma_2 = this.afterIma_2;
+      this.afterIma_2  = this.auxIma_2;
+  
+      this.auxIma_3    = this.beforeIma_3;
+      document.getElementById('dolar_peso_ima').firstElementChild.setAttribute('src', this.beforeIma_3);
+      this.beforeIma_3 = this.afterIma_3;
+      this.afterIma_3  = this.auxIma_3;
+  
+      this.auxIma_4    = this.beforeIma_4;
+      document.getElementById('dolar_real_cheque_ima').firstElementChild.setAttribute('src', this.beforeIma_4);
+      this.beforeIma_4 = this.afterIma_4;
+      this.afterIma_4  = this.auxIma_4;
+    }, 1000);
   }
 
   ionViewCanLeave() {
-    console.log('ionViewCanLeave TableroPage');
   }
   
   ionViewWillLeave() {
-    console.log('ionViewWillLeave TableroPage');
+    clearInterval(this.imageInterval);
+    clearInterval(this.loadingInterval);
   }
 
   ionViewDidLeave() {
-    console.log('ionViewDidLeave TableroPage');
   }
 
   ionViewWillUnload() {
-    console.log('ionViewWillUnload TableroPage');
   }
 
   calculadoraPresent(){
     this.navCtrl.push(CalculadoraPage);
   }
 
-  animationImage(ciudadView) {
-    let auxIma_1    = '';
-    let beforeIma_1 = 'assets/flag/dolar.png';
-    let afterIma_1  = 'assets/flag/real.png';
-
-    let auxIma_2    = '';
-    let beforeIma_2 = 'assets/flag/dolar.png';
-    let afterIma_2  = 'assets/flag/euro.png';
-
-    let auxIma_3    = '';
-    let beforeIma_3 = 'assets/flag/dolar.png';
-    let afterIma_3  = 'assets/flag/peso.png';
-
-    let auxIma_4    = '';
-    let beforeIma_4 = 'assets/flag/dolar.png';
-    let afterIma_4  = 'assets/flag/real.png';
-
-    setInterval(function(){
-      auxIma_1    = beforeIma_1;
-      document.getElementById(ciudadView + '_dolar_real_ima').firstElementChild.setAttribute('src', beforeIma_1);
-      beforeIma_1 = afterIma_1;
-      afterIma_1  = auxIma_1;
-
-      auxIma_2    = beforeIma_2;
-      document.getElementById(ciudadView + '_dolar_euro_ima').firstElementChild.setAttribute('src', beforeIma_2);
-      beforeIma_2 = afterIma_2;
-      afterIma_2  = auxIma_2;
-
-      auxIma_3    = beforeIma_3;
-      document.getElementById(ciudadView + '_dolar_peso_ima').firstElementChild.setAttribute('src', beforeIma_3);
-      beforeIma_3 = afterIma_3;
-      afterIma_3  = auxIma_3;
-
-      auxIma_4    = beforeIma_4;
-      document.getElementById(ciudadView + '_dolar_real_cheque_ima').firstElementChild.setAttribute('src', beforeIma_4);
-      beforeIma_4 = afterIma_4;
-      afterIma_4  = auxIma_4;
-    }, 1500);
-  }
-
-  animationExchange(ciudadView, monedaView, classView) {
+  animationExchange(monedaView, monedaClass) {
     let auxClass    = '';
     let beforeClass = 'cotizacion-normal';
-    let afterClass  = classView;
+    let afterClass  = monedaClass;
 
-    let internalEchange = setInterval(function(){
+    let exchangeInternal = setInterval(function(){
       auxClass    = beforeClass;
-      document.getElementById(ciudadView + monedaView).setAttribute('class', beforeClass);
+      document.getElementById(monedaView).setAttribute('class', beforeClass);
       beforeClass = afterClass;
       afterClass  = auxClass;
     }, 500);
 
     setTimeout(function(){
-      clearInterval(internalEchange);
+      clearInterval(exchangeInternal);
     }, 30000);
+  }
+
+  loadingInit() {
+    this.loadingSpinner = this.loadingCtrl.create({
+      content: 'Actualizando cotización...',
+      duration: 3000, 
+      dismissOnPageChange: true
+    });
+
+    this.loadingSpinner.present().then(() => {
+      this.getData(this.sucursalSelect);
+    });
+
+    this.loadingSpinner.onDidDismiss(() => {
+    });
+  }
+  
+  presentPopover(idEvent){
+    let popover = this.popoverCtrl.create(PopoverComponent);
+    popover.present({
+      ev: idEvent
+    });
+
+    popover.onDidDismiss(popoverData => {
+      this.sucursalSelect = popoverData.id;
+      this.getData(this.sucursalSelect);
+    });
+  }
+
+  getData(idItem){
+    this.JSONData = this.apiJSON.getTablero();
+    switch(idItem) {
+      case 'ASU': {
+        this.title      = 'Casa Matriz';
+        this.JSONApi    = this.JSONData.asuncion;
+        this.updateLast = this.JSONData.asuncion[9].compra + ' ' + this.JSONData.asuncion[9].venta;
+        break;
+      }
+
+      case 'VM': {
+        this.title      = 'Suc. Villa Morra';
+        this.JSONApi    = this.JSONData.villamorra;
+        this.updateLast = this.JSONData.villamorra[9].compra + ' ' + this.JSONData.villamorra[9].venta;
+        break;
+      }
+      
+      case 'CDE': {
+        this.title      = 'Suc. Ciudad del Este';
+        this.JSONApi    = this.JSONData.ciudaddeleste;
+        this.updateLast = this.JSONData.ciudaddeleste[9].compra + ' ' + this.JSONData.ciudaddeleste[9].venta;
+        break;
+      }
+      
+      case 'SDG': {
+        this.title      = 'Suc. Salto del Guairá';
+        this.JSONApi    = this.JSONData.saltodelguaira;
+        this.updateLast = this.JSONData.saltodelguaira[9].compra + ' ' + this.JSONData.saltodelguaira[9].venta;
+        break;
+      }
+
+      case 'SLO': {
+        this.title      = 'Age. San Lorenzo';
+        this.JSONApi    = this.JSONData.sanlorenzo;
+        this.updateLast = this.JSONData.sanlorenzo[9].compra + ' ' + this.JSONData.sanlorenzo[9].venta;
+        break;
+      }
+      
+      case 'KM4': {
+        this.title      = 'Age. Km4';
+        this.JSONApi    = this.JSONData.km4;
+        this.updateLast = this.JSONData.km4[9].compra + ' ' + this.JSONData.km4[9].venta;
+        break;
+      }
+      
+      case 'ENC': {
+        this.title      = 'Suc. Encarnación';
+        this.JSONApi    = this.JSONData.encarnacion;
+        this.updateLast = this.JSONData.encarnacion[9].compra + ' ' + this.JSONData.encarnacion[9].venta;
+        break;
+      }
+      
+      default: {
+        this.title      = 'Casa Matriz';
+        this.JSONApi    = this.JSONData.asuncion;
+        this.updateLast = '00/00/0000 00:00:00';
+        break;
+      }
+    }
   }
 }

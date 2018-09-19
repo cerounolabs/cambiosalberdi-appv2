@@ -11,63 +11,13 @@
 </ion-header>
 
 <ion-content class="container">
-  <ion-card class="adv-map">
+  <ion-card class="adv-map" *ngFor="let item of JSONApi">
     <div style="position: relative">
-      <img src="assets/servicio/ima01.jpeg">
+      <img src="{{item.imagen}}">
     </div>
     <ion-item>
-      <ion-card-title>Compra, Venta y Arbitraje</ion-card-title>
-      <p>Con más de 29 años de experiencia damos el mejor servicio de compra, venta y arbitraje de divisas.</p>
-    </ion-item>
-  </ion-card>
-
-  <ion-card class="adv-map">
-    <div style="position: relative">
-      <img src="assets/servicio/ima02.jpeg">
-    </div>
-    <ion-item>
-      <ion-card-title>Giros Nacionales</ion-card-title>
-      <p>Realizamos giros a todo el país, con las mejores tarifas.</p>
-    </ion-item>
-  </ion-card>  
-
-  <ion-card class="adv-map">
-    <div style="position: relative">
-      <img src="assets/servicio/ima03.jpeg">
-    </div>
-    <ion-item>
-      <ion-card-title>Giros Internacionales</ion-card-title>
-      <p>Consulte por nuestros servicios de transferencias internacionales.</p>
-    </ion-item>
-  </ion-card>
-
-  <ion-card class="adv-map">
-    <div style="position: relative">
-      <img src="assets/servicio/ima04.jpeg">
-    </div>
-    <ion-item>
-      <ion-card-title>Aqui Pagos</ion-card-title>
-      <p>Bocas de combranzas.</p>
-    </ion-item>
-  </ion-card>
-
-  <ion-card class="adv-map">
-    <div style="position: relative">
-      <img src="assets/servicio/ima05.jpeg">
-    </div>
-    <ion-item>
-      <ion-card-title>PagoExpress</ion-card-title>
-      <p>Bocas de combranzas.</p>
-    </ion-item>
-  </ion-card>
-
-  <ion-card class="adv-map">
-    <div style="position: relative">
-      <img src="assets/sucursal/matriz.jpg">
-    </div>
-    <ion-item>
-      <ion-card-title>Bancard</ion-card-title>
-      <p>Todos los servicios podés abonarlos con tarjetas de créditos/débitos y tus extractos bancarios con tarjeta de débito.</p>
+      <ion-card-title>{{item.titulo}}</ion-card-title>
+      <p>{{item.descripcion}}</p>
     </ion-item>
   </ion-card>
 </ion-content>
