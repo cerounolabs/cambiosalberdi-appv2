@@ -6,10 +6,13 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Giros</ion-title>
+    <ion-title>Giros Desde</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="container">
-
+<ion-content class="container card-background-page">
+  <ion-card  *ngFor="let item of JSONApi">
+    <img src="{{item.imagen}}"/>
+    <div class="card-title">{{item.ciudad}}</div>
+  </ion-card>
 </ion-content>

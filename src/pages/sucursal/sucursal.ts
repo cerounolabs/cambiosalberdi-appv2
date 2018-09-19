@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
+import { ApiProvider } from '../../providers/api/api';
+
 
 /**
  * Generated class for the SucursalPage page.
@@ -18,41 +20,34 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
 export class SucursalPage {
   isAndroid: boolean = false;
+  JSONApi;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform) {
-    console.log('constructor SucursalPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, public apiJSON: ApiProvider) {
     this.isAndroid = platform.is('android');
   }
 
   ionViewCanEnter() {
-    console.log('ionViewCanEnter SucursalPage');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SucursalPage');
+    this.JSONApi = this.apiJSON.getSucursal();
   }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter SucursalPage');
   }
 
   ionViewDidEnter() {
-    console.log('ionViewDidEnter SucursalPage');
   }
 
   ionViewCanLeave() {
-    console.log('ionViewCanLeave SucursalPage');
   }
   
   ionViewWillLeave() {
-    console.log('ionViewWillLeave SucursalPage');
   }
 
   ionViewDidLeave() {
-    console.log('ionViewDidLeave SucursalPage');
   }
 
   ionViewWillUnload() {
-    console.log('ionViewWillUnload SucursalPage');
   }
 }

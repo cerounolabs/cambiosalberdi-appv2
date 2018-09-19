@@ -17,6 +17,7 @@ import { CalculadoraPage } from '../pages/calculadora/calculadora';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { ApiProvider } from '../providers/api/api';
+import { PopoverComponent } from '../components/popover/popover';
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +27,8 @@ import { ApiProvider } from '../providers/api/api';
     SucursalPage,
     AcercaPage,
     CalculadoraPage,
-    TabsPage
+    TabsPage,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { ApiProvider } from '../providers/api/api';
     SucursalPage,
     AcercaPage,
     CalculadoraPage,
-    TabsPage
+    TabsPage,
+    PopoverComponent
   ],
   providers: [
     StatusBar,

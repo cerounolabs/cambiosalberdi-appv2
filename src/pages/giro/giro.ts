@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
+import { ApiProvider } from '../../providers/api/api';
+
 
 /**
  * Generated class for the GiroPage page.
@@ -18,41 +20,34 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
 export class GiroPage {
   isAndroid: boolean = false;
+  JSONApi;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform) {
-    console.log('constructor GiroPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, public apiJSON: ApiProvider) {
     this.isAndroid = platform.is('android');
   }
 
   ionViewCanEnter() {
-    console.log('ionViewCanEnter GiroPage');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GiroPage');
+    this.JSONApi = this.apiJSON.getGiro();
   }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter GiroPage');
   }
 
   ionViewDidEnter() {
-    console.log('ionViewDidEnter GiroPage');
   }
 
   ionViewCanLeave() {
-    console.log('ionViewCanLeave GiroPage');
   }
   
   ionViewWillLeave() {
-    console.log('ionViewWillLeave GiroPage');
   }
 
   ionViewDidLeave() {
-    console.log('ionViewDidLeave GiroPage');
   }
 
   ionViewWillUnload() {
-    console.log('ionViewWillUnload GiroPage');
   }
 }

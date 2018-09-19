@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
+import { ApiProvider } from '../../providers/api/api';
+
 
 /**
  * Generated class for the ServicioPage page.
@@ -18,41 +20,34 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
 export class ServicioPage {
   isAndroid: boolean = false;
+  JSONApi;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform) {
-    console.log('constructor ServicioPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, public apiJSON: ApiProvider) {
     this.isAndroid = platform.is('android');
   }
 
   ionViewCanEnter() {
-    console.log('ionViewCanEnter ServicioPage');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ServicioPage');
+    this.JSONApi = this.apiJSON.getServicio();
   }
 
   ionViewWillEnter() {
-    console.log('ionViewWillEnter ServicioPage');
   }
 
   ionViewDidEnter() {
-    console.log('ionViewDidEnter ServicioPage');
   }
 
   ionViewCanLeave() {
-    console.log('ionViewCanLeave ServicioPage');
   }
   
   ionViewWillLeave() {
-    console.log('ionViewWillLeave ServicioPage');
   }
 
   ionViewDidLeave() {
-    console.log('ionViewDidLeave ServicioPage');
   }
 
   ionViewWillUnload() {
-    console.log('ionViewWillUnload ServicioPage');
   }
 }

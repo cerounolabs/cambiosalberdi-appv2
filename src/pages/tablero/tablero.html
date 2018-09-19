@@ -7,88 +7,47 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{title}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="ios-eye"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
-  <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="sucursalSegment">
-      <ion-segment-button value="ASU" (ionSelect)="this.title ='Asunción'">
-        ASU
-      </ion-segment-button>
-      <ion-segment-button value="VM" (ionSelect)="this.title ='Villa Morra'">
-        VM
-      </ion-segment-button>
-      <ion-segment-button value="CDE" (ionSelect)="this.title ='Ciudad del Este'">
-        CDE
-      </ion-segment-button>
-      <ion-segment-button value="SDG" (ionSelect)="this.title ='Salto del Guairá'">
-        SDG
-      </ion-segment-button>
-      <ion-segment-button value="SLO" (ionSelect)="this.title ='San Lorenzo'">
-        SLO
-      </ion-segment-button>
-      <ion-segment-button value="KM4" (ionSelect)="this.title ='CDE - KM4'">
-        KM4
-      </ion-segment-button>
-      <ion-segment-button value="ENC" (ionSelect)="this.title ='Encarnación'">
-        ENC
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content class="container">
-  <div [ngSwitch]="sucursalSegment">
-    <ion-list *ngSwitchCase="'ASU'">
+  <div style="position:absolute; top:46px; width:100%;">
+    <ion-list>
       <ion-grid>
-        <ion-row align-items-center *ngFor="let item of ASUJson">
-          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima" *ngIf="item.id !== 'asuncion_timer'"><img src="assets/flag/{{item.img}}" /></ion-col>
-          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom" *ngIf="item.id !== 'asuncion_timer'"> {{item.moneda}}</ion-col>
-          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" *ngIf="item.id !== 'asuncion_timer'" class="cotizacion-normal">{{item.compra}}</ion-col>
-          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" *ngIf="item.id !== 'asuncion_timer'" class="cotizacion-normal">{{item.venta}}</ion-col>
+        <ion-row align-items-center *ngFor="let item of JSONApi">
+          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima" *ngIf="item.id !== 'timer'"><img src="assets/flag/{{item.imagen}}" /></ion-col>
+          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom" *ngIf="item.id !== 'timer'"> {{item.moneda}}</ion-col>
+          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" *ngIf="item.id !== 'timer'" class="cotizacion-normal">{{item.compra}}</ion-col>
+          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" *ngIf="item.id !== 'timer'" class="cotizacion-normal">{{item.venta}}</ion-col>
         </ion-row>
       </ion-grid>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'VM'">
-      <ion-grid>
-        <ion-row align-items-center *ngFor="let item of VMJson">
-          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima" *ngIf="item.id !== 'villamorra_timer'"><img src="assets/flag/{{item.img}}" /></ion-col>
-          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom" *ngIf="item.id !== 'villamorra_timer'"> {{item.moneda}}</ion-col>
-          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" *ngIf="item.id !== 'villamorra_timer'" class="cotizacion-normal">{{item.compra}}</ion-col>
-          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" *ngIf="item.id !== 'villamorra_timer'" class="cotizacion-normal">{{item.venta}}</ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'CDE'">
-      <ion-grid>
-        <ion-row align-items-center *ngFor="let item of CDEJson">
-          <ion-col #{{item.id}}_ima col-2 id="{{item.id}}_ima" *ngIf="item.id !== 'ciudadeste_timer'"><img src="assets/flag/{{item.img}}" /></ion-col>
-          <ion-col #{{item.id}}_nom col-4 id="{{item.id}}_nom" *ngIf="item.id !== 'ciudadeste_timer'"> {{item.moneda}}</ion-col>
-          <ion-col #{{item.id}}_com col-3 id="{{item.id}}_com" *ngIf="item.id !== 'ciudadeste_timer'" class="cotizacion-normal">{{item.compra}}</ion-col>
-          <ion-col #{{item.id}}_ven col-3 id="{{item.id}}_ven" *ngIf="item.id !== 'ciudadeste_timer'" class="cotizacion-normal">{{item.venta}}</ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-list>
-  
-    <ion-list *ngSwitchCase="'SDG'">
-  
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'SLO'">
-
-    </ion-list>
-    
-    <ion-list *ngSwitchCase="'KM4'">
-    
-    </ion-list>
-
-    <ion-list *ngSwitchCase="'ENC'">
-    
     </ion-list>
   </div>
-
+  <div style="position:fixed; width:100%;background-color: white;color: #00944C; font-weight:bold;">
+      <ion-grid>
+          <ion-row align-items-center>
+              <ion-col col-6>Moneda</ion-col>
+              <ion-col col-3>Compra</ion-col>
+              <ion-col col-3>Venta</ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+<!--
   <ion-fab right bottom>
     <button ion-fab color="alberdi" (click)="calculadoraPresent()"><ion-icon name="ios-calculator"></ion-icon></button>
   </ion-fab>
+-->
 </ion-content>
+
+<ion-footer class="container-footer">
+  <ion-grid >
+    <ion-row>
+      <ion-col col-12><ion-icon name="ios-alarm-outline"></ion-icon> Actualizado {{updateLast}}</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import {TableroPage } from './tablero';
+import { TableroPage } from './tablero';
 
 @NgModule({
   declarations: [
