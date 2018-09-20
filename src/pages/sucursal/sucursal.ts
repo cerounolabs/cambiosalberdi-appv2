@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+
+import { Subscription} from 'rxjs/Subscription';
 
 import { ApiProvider } from '../../providers/api/api';
 
@@ -21,6 +24,8 @@ import { ApiProvider } from '../../providers/api/api';
 export class SucursalPage {
   isAndroid: boolean = false;
   JSONApi;
+  connected: Subscription;
+  disconnected: Subscription;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, public apiJSON: ApiProvider) {
     this.isAndroid = platform.is('android');
