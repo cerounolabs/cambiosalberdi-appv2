@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Network } from '@ionic-native/network';
 
 import { TableroPage } from '../pages/tablero/tablero';
 import { GiroPage } from '../pages/giro/giro';
@@ -18,6 +19,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { ApiProvider } from '../providers/api/api';
 import { PopoverComponent } from '../components/popover/popover';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -51,7 +53,8 @@ import { PopoverComponent } from '../components/popover/popover';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiProvider
+    ApiProvider,
+    Network
   ]
 })
 

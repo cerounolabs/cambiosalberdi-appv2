@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+
 import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
+import { PopoverController} from 'ionic-angular/components/popover/popover-controller';
 
 import { CalculadoraPage } from '../calculadora/calculadora';
 import { ApiProvider } from '../../providers/api/api';
-import { PopoverController} from 'ionic-angular/components/popover/popover-controller';
 import { PopoverComponent } from '../../components/popover/popover';
 
 /**
