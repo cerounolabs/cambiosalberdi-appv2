@@ -23,7 +23,7 @@ import { ApiProvider } from '../../providers/api/api';
 
 export class SucursalPage {
   isAndroid: boolean = false;
-  JSONApi;
+  JSONApi : any;
   connected: Subscription;
   disconnected: Subscription;
 
@@ -35,7 +35,9 @@ export class SucursalPage {
   }
 
   ionViewDidLoad() {
-    this.JSONApi = this.apiJSON.getSucursal();
+    this.apiJSON.getSucursal().then(data => {
+      this.JSONApi = data;
+    });
   }
 
   ionViewWillEnter() {
