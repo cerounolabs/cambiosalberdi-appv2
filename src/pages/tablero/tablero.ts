@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { IonicPage, NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, Platform, LoadingController } from 'ionic-angular';
 import { PopoverController} from 'ionic-angular/components/popover/popover-controller';
 
 import { CalculadoraPage } from '../calculadora/calculadora';
@@ -13,8 +13,6 @@ import { PopoverComponent } from '../../components/popover/popover';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
-@IonicPage()
 
 @Component({
   selector: 'page-tablero',
@@ -166,42 +164,42 @@ export class TableroPage {
         }
 
         case 'VM': {
-          this.title      = 'Suc. Villa Morra';
+          this.title      = 'Villa Morra';
           this.JSONApi    = data['villamorra'];
           this.updateLast = data['villamorra'][9].compra + ' ' + data['villamorra'][9].venta;
           break;
         }
         
         case 'CDE': {
-          this.title      = 'Suc. Ciudad del Este';
+          this.title      = 'Ciudad del Este';
           this.JSONApi    = data['ciudaddeleste'];
           this.updateLast = data['ciudaddeleste'][9].compra + ' ' + data['ciudaddeleste'][9].venta;
           break;
         }
         
         case 'SDG': {
-          this.title      = 'Suc. Salto del Guairá';
+          this.title      = 'Salto del Guairá';
           this.JSONApi    = data['saltodelguaira'];
           this.updateLast = data['saltodelguaira'][9].compra + ' ' + data['saltodelguaira'][9].venta;
           break;
         }
   
         case 'SLO': {
-          this.title      = 'Age. San Lorenzo';
+          this.title      = 'San Lorenzo';
           this.JSONApi    = data['sanlorenzo'];
           this.updateLast = data['sanlorenzo'][9].compra + ' ' + data['sanlorenzo'][9].venta;
           break;
         }
         
         case 'KM4': {
-          this.title      = 'Age. Km4';
+          this.title      = 'CDE Km4';
           this.JSONApi    = data['km4'];
           this.updateLast = data['km4'][9].compra + ' ' + data['km4'][9].venta;
           break;
         }
         
         case 'ENC': {
-          this.title      = 'Suc. Encarnación';
+          this.title      = 'Encarnación';
           this.JSONApi    = data['encarnacion'];
           this.updateLast = data['encarnacion'][9].compra + ' ' + data['encarnacion'][9].venta;
           break;
