@@ -42,8 +42,7 @@ export class TableroPage {
   imageInterval;
   loadingInterval;
   loadingSpinner;
-  JSONData;
-  JSONApi;
+  JSONApi : any;
   
   constructor(
     public navCtrl: NavController, public navParams: NavParams, public platform: Platform, public apiJSON: ApiProvider, public loadingCtrl: LoadingController, public popoverCtrl: PopoverController) {
@@ -60,7 +59,7 @@ export class TableroPage {
   ionViewWillEnter() {
     this.loadingInterval = setInterval(() => {
       this.loadingInit();
-    }, 300000);
+    }, 60000);
   }
 
   ionViewDidEnter() {
@@ -149,64 +148,72 @@ export class TableroPage {
     });
   }
 
+  refresh(idRefresh){
+    setTimeout(() => {
+      this.loadingInit();
+      idRefresh.complete();
+    }, 500);
+  }
+
   getData(idItem){
-    this.JSONData = this.apiJSON.getTablero();
-    switch(idItem) {
-      case 'ASU': {
-        this.title      = 'Casa Matriz';
-        this.JSONApi    = this.JSONData.asuncion;
-        this.updateLast = this.JSONData.asuncion[9].compra + ' ' + this.JSONData.asuncion[9].venta;
-        break;
-      }
+    this.apiJSON.getTablero().then(data => {
+      switch(idItem) {
+        case 'ASU': {
+          this.title      = 'Casa Matriz';
+          this.JSONApi    = data['asuncion'];
+          this.updateLast = data['asuncion'][9].compra + ' ' + data['asuncion'][9].venta;
+          break;
+        }
 
-      case 'VM': {
-        this.title      = 'Suc. Villa Morra';
-        this.JSONApi    = this.JSONData.villamorra;
-        this.updateLast = this.JSONData.villamorra[9].compra + ' ' + this.JSONData.villamorra[9].venta;
-        break;
-      }
-      
-      case 'CDE': {
-        this.title      = 'Suc. Ciudad del Este';
-        this.JSONApi    = this.JSONData.ciudaddeleste;
-        this.updateLast = this.JSONData.ciudaddeleste[9].compra + ' ' + this.JSONData.ciudaddeleste[9].venta;
-        break;
-      }
-      
-      case 'SDG': {
-        this.title      = 'Suc. Salto del Guairá';
-        this.JSONApi    = this.JSONData.saltodelguaira;
-        this.updateLast = this.JSONData.saltodelguaira[9].compra + ' ' + this.JSONData.saltodelguaira[9].venta;
-        break;
-      }
+        case 'VM': {
+          this.title      = 'Suc. Villa Morra';
+          this.JSONApi    = data['villamorra'];
+          this.updateLast = data['villamorra'][9].compra + ' ' + data['villamorra'][9].venta;
+          break;
+        }
+        
+        case 'CDE': {
+          this.title      = 'Suc. Ciudad del Este';
+          this.JSONApi    = data['ciudaddeleste'];
+          this.updateLast = data['ciudaddeleste'][9].compra + ' ' + data['ciudaddeleste'][9].venta;
+          break;
+        }
+        
+        case 'SDG': {
+          this.title      = 'Suc. Salto del Guairá';
+          this.JSONApi    = data['saltodelguaira'];
+          this.updateLast = data['saltodelguaira'][9].compra + ' ' + data['saltodelguaira'][9].venta;
+          break;
+        }
+  
+        case 'SLO': {
+          this.title      = 'Age. San Lorenzo';
+          this.JSONApi    = data['sanlorenzo'];
+          this.updateLast = data['sanlorenzo'][9].compra + ' ' + data['sanlorenzo'][9].venta;
+          break;
+        }
+        
+        case 'KM4': {
+          this.title      = 'Age. Km4';
+          this.JSONApi    = data['km4'];
+          this.updateLast = data['km4'][9].compra + ' ' + data['km4'][9].venta;
+          break;
+        }
+        
+        case 'ENC': {
+          this.title      = 'Suc. Encarnación';
+          this.JSONApi    = data['encarnacion'];
+          this.updateLast = data['encarnacion'][9].compra + ' ' + data['encarnacion'][9].venta;
+          break;
+        }
 
-      case 'SLO': {
-        this.title      = 'Age. San Lorenzo';
-        this.JSONApi    = this.JSONData.sanlorenzo;
-        this.updateLast = this.JSONData.sanlorenzo[9].compra + ' ' + this.JSONData.sanlorenzo[9].venta;
-        break;
+        default: {
+          this.title      = 'Casa Matriz';
+          this.JSONApi    = data['asuncion'];
+          this.updateLast = data['asuncion'][9].compra + ' ' + data['asuncion'][9].venta;
+          break;
+        }
       }
-      
-      case 'KM4': {
-        this.title      = 'Age. Km4';
-        this.JSONApi    = this.JSONData.km4;
-        this.updateLast = this.JSONData.km4[9].compra + ' ' + this.JSONData.km4[9].venta;
-        break;
-      }
-      
-      case 'ENC': {
-        this.title      = 'Suc. Encarnación';
-        this.JSONApi    = this.JSONData.encarnacion;
-        this.updateLast = this.JSONData.encarnacion[9].compra + ' ' + this.JSONData.encarnacion[9].venta;
-        break;
-      }
-      
-      default: {
-        this.title      = 'Casa Matriz';
-        this.JSONApi    = this.JSONData.asuncion;
-        this.updateLast = '00/00/0000 00:00:00';
-        break;
-      }
-    }
+    });
   }
 }

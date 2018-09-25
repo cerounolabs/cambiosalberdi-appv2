@@ -31,7 +31,9 @@ export class GiroPage {
   }
 
   ionViewDidLoad() {
-    this.JSONApi = this.apiJSON.getGiro();
+    this.apiJSON.getGiro().then(data => {
+      this.JSONApi = data;
+    });
   }
 
   ionViewWillEnter() {
