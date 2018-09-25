@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 
 import { ApiProvider } from '../../providers/api/api';
 
@@ -12,9 +12,7 @@ import { ApiProvider } from '../../providers/api/api';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-
-@Component({
+ @Component({
   selector: 'page-giro',
   templateUrl: 'giro.html',
 })

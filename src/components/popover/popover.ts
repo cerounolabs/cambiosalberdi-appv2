@@ -19,12 +19,12 @@ export class PopoverComponent {
   constructor(public viewCtrl: ViewController, public navParams:NavParams) {
     this.items = [
       {id: 'ASU', name: 'Casa Matriz'},
-      {id: 'VM',  name: 'Suc. Villa Morra'},
-      {id: 'CDE', name: 'Suc. Ciudad del Este'},
-      {id: 'SDG', name: 'Suc. Salto del Guairá'},
-      {id: 'SLO', name: 'Age. San Lorenzo'},
-      {id: 'KM4', name: 'Age. KM4'},
-      {id: 'ENC', name: 'Suc. Encarnación'}
+      {id: 'VM',  name: 'Villa Morra'},
+      {id: 'CDE', name: 'Ciudad del Este'},
+      {id: 'SDG', name: 'Salto del Guairá'},
+      {id: 'SLO', name: 'San Lorenzo'},
+      {id: 'KM4', name: 'CDE KM4'},
+      {id: 'ENC', name: 'Encarnación'}
     ];
   }
 
