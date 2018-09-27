@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+
 import { NavController, NavParams, Platform } from 'ionic-angular';
+
+import { ApiProvider } from '../../providers/api/api';
 
 
 /**
@@ -16,8 +19,9 @@ import { NavController, NavParams, Platform } from 'ionic-angular';
 
 export class AcercaPage {
   isAndroid: boolean = false;
+  JSONApi;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, platform: Platform, public apiJSON: ApiProvider) {
     this.isAndroid = platform.is('android');
   }
 
@@ -25,6 +29,9 @@ export class AcercaPage {
   }
 
   ionViewDidLoad() {
+    this.apiJSON.getLogo().then(data => {
+      this.JSONApi = data['data'];
+    });
   }
 
   ionViewWillEnter() {

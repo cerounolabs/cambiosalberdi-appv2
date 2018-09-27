@@ -16,26 +16,26 @@ import { Network } from '@ionic-native/network';
 export class ApiProvider {
   URLApi;
   JSONApi;
+  header;
 
   constructor(public httpClient: HttpClient, public network: Network, public storage: Storage) {
+    this.header = new HttpHeaders();
+    this.header.append('Access-Control-Allow-Origin', '*');
+    this.header.append('Access-Control-Allow-Credentials', 'false');
+    this.header.append('Access-Control-Allow-Methods', 'GET');
+    this.header.append('Access-Control-Allow-Headers', '');
+    this.header.append('accept', 'application/json');
+    this.header.append('content-Type', 'application/json, charset=utf-8');
+    this.header.append('cache-control', 'no-cache');
+    this.header.append('cache-control', 'no-store');
+    this.header.append('expire', '0');
+    this.header.append('pragma', 'no-cache');
+    this.header.append('if-modified-since', 'Sat, 1 Jan 2000 00:00:00 GMT');
   }
 
   getTablero() {
     let num     = Math.floor(Math.random() * 1000000) + 1;
     this.URLApi = 'http://www.cambiosalberdi.com/ws/getTablero.json?';
-
-    let header  = new HttpHeaders();
-    header.append('Access-Control-Allow-Origin', '*');
-    header.append('Access-Control-Allow-Credentials', 'false');
-    header.append('Access-Control-Allow-Methods', 'GET');
-    header.append('Access-Control-Allow-Headers', '');
-    header.append('accept', 'application/json');
-    header.append('content-Type', 'application/json, charset=utf-8');
-    header.append('cache-control', 'no-cache');
-    header.append('cache-control', 'no-store');
-    header.append('expire', '0');
-    header.append('pragma', 'no-cache');
-    header.append('if-modified-since', 'Sat, 1 Jan 2000 00:00:00 GMT');
 
     let temp     = this;
     temp.JSONApi = {
@@ -126,7 +126,7 @@ export class ApiProvider {
     };
 
     return new Promise(resolve => {
-      this.httpClient.get(this.URLApi + num, {headers:header , observe: 'body'}).subscribe(data => {
+      this.httpClient.get(this.URLApi + num, {headers:this.header , observe: 'body'}).subscribe(data => {
         resolve(data);
       }, err => {
         resolve(temp.JSONApi);
@@ -135,17 +135,21 @@ export class ApiProvider {
   }
 
   getGiro() {
+    let num      = Math.floor(Math.random() * 1000000) + 1;
+    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getGiro.json?';
+    
     let temp     = this;
-    temp.URLApi  = 'http://www.cambiosalberdi.com/ws/getGiro.json';    
-    temp.JSONApi = [
-      {ciudad: 'Asunción', imagen: 'assets/giro/ima01.jpg'},
-      {ciudad: 'Ciudad del Este', imagen: 'assets/giro/ima02.jpg'},
-      {ciudad: 'Salto del Guairá', imagen: 'assets/giro/ima03.jpg'},
-      {ciudad: 'Encarnación', imagen: 'assets/giro/ima04.jpg'}
-    ];
+    temp.JSONApi = {
+      "data" : [
+        {ciudad: 'Asunción', imagen: 'assets/giro/ima01.jpg'},
+        {ciudad: 'Ciudad del Este', imagen: 'assets/giro/ima02.jpg'},
+        {ciudad: 'Salto del Guairá', imagen: 'assets/giro/ima03.jpg'},
+        {ciudad: 'Encarnación', imagen: 'assets/giro/ima04.jpg'}
+      ]
+    };
 
     return new Promise(resolve => {
-      this.httpClient.get(temp.URLApi).subscribe(data => {
+      this.httpClient.get(this.URLApi + num, {headers:this.header , observe: 'body'}).subscribe(data => {
         resolve(data);
       }, err => {
         resolve(temp.JSONApi);
@@ -154,19 +158,23 @@ export class ApiProvider {
   }
 
   getServicio() {
+    let num      = Math.floor(Math.random() * 1000000) + 1;
+    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getServicio.json?';
+
     let temp     = this;
-    temp.URLApi  = 'http://www.cambiosalberdi.com/ws/getServicio.json';
-    temp.JSONApi = [
-      {titulo: 'Compra, Venta y Arbitraje', descripcion: 'Con más de 29 años de experiencia damos el mejor servicio de compra, venta y arbitraje de divisas', imagen: 'assets/servicio/ima01.jpg'},
-      {titulo: 'Giros Nacionales', descripcion: 'Realizamos giros a todo el país, con las mejores tarifas.', imagen: 'assets/servicio/ima02.jpg'},
-      {titulo: 'Giros Internaciones', descripcion: 'Consulte por nuestros servicios de transferencias internacionales', imagen: 'assets/servicio/ima03.jpg'},
-      {titulo: 'Aqui Pago', descripcion: 'Bonca de Cobranzas', imagen: 'assets/servicio/ima04.jpg'},
-      {titulo: 'Pago Express', descripcion: 'Boca de Cobranzas', imagen: 'assets/servicio/ima05.jpg'},
-      {titulo: 'Bancard', descripcion: 'Todos los servicios podés abonarlos con tarjetas de créditos.', imagen: 'assets/servicio/ima06.jpg'}
-    ];
+    temp.JSONApi = {
+      "data" : [
+        {titulo: 'Compra, Venta y Arbitraje', descripcion: 'Con más de 29 años de experiencia damos el mejor servicio de compra, venta y arbitraje de divisas', imagen: 'assets/servicio/ima01.jpg'},
+        {titulo: 'Giros Nacionales', descripcion: 'Realizamos giros a todo el país, con las mejores tarifas.', imagen: 'assets/servicio/ima02.jpg'},
+        {titulo: 'Giros Internaciones', descripcion: 'Consulte por nuestros servicios de transferencias internacionales', imagen: 'assets/servicio/ima03.jpg'},
+        {titulo: 'Aqui Pago', descripcion: 'Boca de Cobranzas', imagen: 'assets/servicio/ima04.jpg'},
+        {titulo: 'Pago Express', descripcion: 'Boca de Cobranzas', imagen: 'assets/servicio/ima05.jpg'},
+        {titulo: 'Bancard', descripcion: 'Todos los servicios podés abonarlos con tarjetas de créditos.', imagen: 'assets/servicio/ima06.jpg'}
+      ]
+    };
 
     return new Promise(resolve => {
-      this.httpClient.get(temp.URLApi).subscribe(data => {
+      this.httpClient.get(this.URLApi + num, {headers:this.header , observe: 'body'}).subscribe(data => {
         resolve(data);
       }, err => {
         resolve(temp.JSONApi);
@@ -175,25 +183,49 @@ export class ApiProvider {
   }
 
   getSucursal() {
+    let num      = Math.floor(Math.random() * 1000000) + 1;
+    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getSucursal.json?';
+
     let temp     = this;
-    temp.URLApi  = 'http://www.cambiosalberdi.com/ws/getSucursal.json';
-    temp.JSONApi = [
-      {sucursal: 'Casa Matriz', imagen: 'assets/sucursal/casa_matriz.jpg', ciudad: 'Asunción - Paraguay', direccion: 'Alberdi Nº 247 e/ Pte. Franco y Palma', telefono: '(021) 447.002', horario_lunes: 'Lunes a Viernes: 07:45 a 17:00', horario_sabado: 'Sábados: 08:00 a 12:00'},
-      {sucursal: 'Suc. Villa Morra', imagen: 'assets/sucursal/suc_villa_morra.jpg', ciudad: 'Asunción - Paraguay', direccion: 'Alberdi Nº 247 e/ Pte. Franco y Palma', telefono: '(021) 609.905', horario_lunes: 'Lunes a Viernes: 08:00 a 17:00', horario_sabado: 'Sábados: 08:00 a 12:00'},
-      {sucursal: 'Suc. Ciudad del Este', imagen: 'assets/sucursal/suc_ciudad_del_este.jpg', ciudad: 'Ciudad del Este - Paraguay', direccion: 'Monseñor Rodríguez esq. Pampliega', telefono: '(061) 500.135', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
-      {sucursal: 'Suc. Salto del Guairá', imagen: 'assets/sucursal/suc_salto.jpg', ciudad: 'Salto del Guairá - Paraguay', direccion: 'Avda. Paraguay Nº 686 c/ Carlos Ricardo Mendes Goncalves', telefono: '(046) 243.158', horario_lunes: 'Lunes a Viernes: 08:00 a 16:00', horario_sabado: 'Sábados: 07:30 a 12:00'},
-      {sucursal: 'Suc. Encarnación', imagen: 'assets/sucursal/suc_encarnacion.jpg', ciudad: 'Encarnación - Paraguay', direccion: 'Mcal. Estigarribia 1436 entre Villarica y Tomas R. Pereira', telefono: '(071) 200.826', horario_lunes: 'Lunes a Viernes: 07:45 a 17:00', horario_sabado: 'Sábados: 07:30 a 12:00'},
-      {sucursal: 'Age. Rubio Ñu', imagen: 'assets/sucursal/age_rubio_nu.jpg', ciudad: 'Ciudad del Este - Paraguay', direccion: 'Rubio Ñu c/Monseñor Rodríguez', telefono: '(061) 512.493', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
-      {sucursal: 'Age. Jebai', imagen: 'assets/sucursal/age_jebai.jpg', ciudad: 'Ciudad del Este - Paraguay', direccion: 'Regimiento Piribebuy e/ Monseñor Rodríguez y Adrián Jara – Local 3009/10 – Galería Jebai Center II', telefono: '(061) 506.060', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
-      {sucursal: 'Age. Lai Lai', imagen: 'assets/sucursal/age_lailai.jpg', ciudad: 'Ciudad del Este - Paraguay', direccion: 'Adrian Jara esq. Itá Ybate – Salón Nº 1 Planta Baja – Galería Lai Lai', telefono: '(061) 501.362', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
-      {sucursal: 'Age. Salto del Guairá', imagen: 'assets/sucursal/age_salto.jpg', ciudad: 'Salto del Guairá - Paraguay', direccion: 'Avda. Paraguay c/ Pedro Juan Caballero', telefono: '(061) 500.135', horario_lunes: 'Lunes a Viernes: 08:00 a 16:00', horario_sabado: 'Sábados: 07:30 a 12:00'},
-      {sucursal: 'Age. Uniamerica', imagen: 'assets/sucursal/age_uniamerica.jpg', ciudad: 'Ciudad del Este - Paraguay', direccion: 'Avda. Itá Ybate – Galería Uniamerica', telefono: '(061) 511.392', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
-      {sucursal: 'Age. San Lorenzo', imagen: 'assets/sucursal/age_san_lorenzo.jpg', ciudad: 'San Lorenzo - Paraguay', direccion: 'Julia Miranda Cueto c/ Mcal. Estigarribia', telefono: '(021) 571.215', horario_lunes: 'Lunes a Viernes: 08:00 a 17:00', horario_sabado: 'Sábados: 08:00 a 12:00'},
-      {sucursal: 'Age. KM4', imagen: 'assets/sucursal/age_km4.jpg', ciudad: 'Ciudad del Este - Paraguay', direccion: 'Super Carretera Fco Solano Lopez c/Fortin Pirizal', telefono: '(061) 571.540', horario_lunes: 'Lunes a Viernes: 08:00 a 17:00', horario_sabado: 'Sábados: 08:00 a 12:00'}
-    ];
+    temp.JSONApi = {
+      "data" : [
+        {sucursal: 'Casa Matriz', imagen: 'assets/sucursal/casa_matriz.jpg', ciudad: 'Asunción', direccion: 'Alberdi Nº 247 e/ Pte. Franco y Palma', telefono: '(021) 447.002', horario_lunes: 'Lunes a Viernes: 07:45 a 17:00', horario_sabado: 'Sábados: 08:00 a 12:00'},
+        {sucursal: 'Suc. Villa Morra', imagen: 'assets/sucursal/suc_villa_morra.jpg', ciudad: 'Asunción', direccion: 'Alberdi Nº 247 e/ Pte. Franco y Palma', telefono: '(021) 609.905', horario_lunes: 'Lunes a Viernes: 08:00 a 17:00', horario_sabado: 'Sábados: 08:00 a 12:00'},
+        {sucursal: 'Suc. Ciudad del Este', imagen: 'assets/sucursal/suc_ciudad_del_este.jpg', ciudad: 'Ciudad del Este', direccion: 'Monseñor Rodríguez esq. Pampliega', telefono: '(061) 500.135', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
+        {sucursal: 'Suc. Salto del Guairá', imagen: 'assets/sucursal/suc_salto.jpg', ciudad: 'Salto del Guairá', direccion: 'Avda. Paraguay Nº 686 c/ Carlos Ricardo Mendes Goncalves', telefono: '(046) 243.158', horario_lunes: 'Lunes a Viernes: 08:00 a 16:00', horario_sabado: 'Sábados: 07:30 a 12:00'},
+        {sucursal: 'Suc. Encarnación', imagen: 'assets/sucursal/suc_encarnacion.jpg', ciudad: 'Encarnación', direccion: 'Mcal. Estigarribia 1436 entre Villarica y Tomas R. Pereira', telefono: '(071) 200.826', horario_lunes: 'Lunes a Viernes: 07:45 a 17:00', horario_sabado: 'Sábados: 07:30 a 12:00'},
+        {sucursal: 'Age. Rubio Ñu', imagen: 'assets/sucursal/age_rubio_nu.jpg', ciudad: 'Ciudad del Este', direccion: 'Rubio Ñu c/Monseñor Rodríguez', telefono: '(061) 512.493', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
+        {sucursal: 'Age. Jebai', imagen: 'assets/sucursal/age_jebai.jpg', ciudad: 'Ciudad del Este', direccion: 'Regimiento Piribebuy e/ Monseñor Rodríguez y Adrián Jara – Local 3009/10 – Galería Jebai Center II', telefono: '(061) 506.060', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
+        {sucursal: 'Age. Lai Lai', imagen: 'assets/sucursal/age_lailai.jpg', ciudad: 'Ciudad del Este', direccion: 'Adrian Jara esq. Itá Ybate – Salón Nº 1 Planta Baja – Galería Lai Lai', telefono: '(061) 501.362', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
+        {sucursal: 'Age. Salto del Guairá', imagen: 'assets/sucursal/age_salto.jpg', ciudad: 'Salto del Guairá', direccion: 'Avda. Paraguay c/ Pedro Juan Caballero', telefono: '(061) 500.135', horario_lunes: 'Lunes a Viernes: 08:00 a 16:00', horario_sabado: 'Sábados: 07:30 a 12:00'},
+        {sucursal: 'Age. Uniamerica', imagen: 'assets/sucursal/age_uniamerica.jpg', ciudad: 'Ciudad del Este', direccion: 'Avda. Itá Ybate – Galería Uniamerica', telefono: '(061) 511.392', horario_lunes: 'Lunes a Viernes: 07:00 a 16:00', horario_sabado: 'Sábados: 07:00 a 12:00'},
+        {sucursal: 'Age. San Lorenzo', imagen: 'assets/sucursal/age_san_lorenzo.jpg', ciudad: 'San Lorenzo', direccion: 'Julia Miranda Cueto c/ Mcal. Estigarribia', telefono: '(021) 571.215', horario_lunes: 'Lunes a Viernes: 08:00 a 17:00', horario_sabado: 'Sábados: 08:00 a 12:00'},
+        {sucursal: 'Age. KM4', imagen: 'assets/sucursal/age_km4.jpg', ciudad: 'Ciudad del Este', direccion: 'Super Carretera Fco Solano Lopez c/Fortin Pirizal', telefono: '(061) 571.540', horario_lunes: 'Lunes a Viernes: 08:00 a 17:00', horario_sabado: 'Sábados: 08:00 a 12:00'}
+      ]
+    };
     
     return new Promise(resolve => {
-      this.httpClient.get(temp.URLApi).subscribe(data => {
+      this.httpClient.get(this.URLApi + num, {headers:this.header , observe: 'body'}).subscribe(data => {
+        resolve(data);
+      }, err => {
+        resolve(temp.JSONApi);
+      });
+    });
+  }
+
+  getLogo() {
+    let num      = Math.floor(Math.random() * 1000000) + 1;
+    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getLogo.json?';
+
+    let temp     = this;
+    temp.JSONApi = {
+      "data" : [
+        {id: 'logo', imagen: 'assets/logo/imgLogo.png'}
+      ]
+    };
+    
+    return new Promise(resolve => {
+      this.httpClient.get(this.URLApi + num, {headers:this.header , observe: 'body'}).subscribe(data => {
         resolve(data);
       }, err => {
         resolve(temp.JSONApi);

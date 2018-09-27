@@ -4,17 +4,6 @@ page-acerca {
         color: white;
     }
 
-    ion-content img {
-        position: relative;
-        width: auto;
-        height: auto;
-        margin: auto;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-    }
-
     ion-card p {
         text-align: center;
     }
@@ -30,6 +19,17 @@ page-acerca {
         right: 0;
         background-color: transparent;
         box-shadow: 0 1px 2px transparent;
+    }
+
+    .container-center-img{
+        position: relative;
+        width: 300px;
+        height: 113px;
+        margin: auto;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
     }
 
     .copyright {

@@ -34,7 +34,7 @@ export class SucursalPage {
 
   ionViewDidLoad() {
     this.apiJSON.getSucursal().then(data => {
-      this.JSONApi = data;
+      this.JSONApi = data['data'];;
     });
   }
 

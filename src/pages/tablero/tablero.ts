@@ -148,9 +148,8 @@ export class TableroPage {
 
   refresh(idRefresh){
     setTimeout(() => {
-      this.loadingInit();
       idRefresh.complete();
-    }, 500);
+    }, 2000);
   }
 
   getData(idItem){

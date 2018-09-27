@@ -30,7 +30,7 @@ export class ServicioPage {
 
   ionViewDidLoad() {
     this.apiJSON.getServicio().then(data => {
-      this.JSONApi = data;
+      this.JSONApi = data['data'];;
     });
   }
 
