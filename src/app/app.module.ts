@@ -9,6 +9,7 @@ import { IonicStorageModule} from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Network } from '@ionic-native/network';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { TableroPage } from '../pages/tablero/tablero';
 import { GiroPage } from '../pages/giro/giro';
@@ -56,7 +57,8 @@ import { PopoverComponent } from '../components/popover/popover';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
-    Network
+    Network,
+    InAppBrowser
   ]
 })
 
