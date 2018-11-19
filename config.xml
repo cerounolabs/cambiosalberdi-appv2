@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="8" id="com.cambiosalberdi.cambiosalberdi" ios-CFBundleVersion="8" version="8.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="8" id="com.cambiosalberdi.cambiosalberdi" ios-CFBundleVersion="8" version="8.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CambiosAlberdiSA</name>
     <description>Cambios Alberdi S.A. Aplicacion movil v2</description>
     <author email="christian@cerouno.com.py" href="https://cerouno.com.py/">CEROUNO Labs</author>
@@ -19,6 +19,7 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreenBackgroundColor" value="#15A346" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -63,19 +64,35 @@
         <icon height="58" src="resources/ios/icon/iphone_29@2x.png" width="58" />
         <icon height="87" src="resources/ios/icon/iphone_29@3x.png" width="87" />
         <icon height="1024" src="resources/ios/icon/app_store_1024@1x.png" width="1024" />
-        <splash height="1136" src="resources/ios/splash/Default-568h@2x~iphone.png" width="640" />
-        <splash height="1334" src="resources/ios/splash/Default-667h.png" width="750" />
-        <splash height="2208" src="resources/ios/splash/Default-736h.png" width="1242" />
-        <splash height="1242" src="resources/ios/splash/Default-Landscape-736h.png" width="2208" />
-        <splash height="1536" src="resources/ios/splash/Default-Landscape@2x~ipad.png" width="2048" />
-        <splash height="2048" src="resources/ios/splash/Default-Landscape@~ipadpro.png" width="2732" />
-        <splash height="768" src="resources/ios/splash/Default-Landscape~ipad.png" width="1024" />
-        <splash height="2048" src="resources/ios/splash/Default-Portrait@2x~ipad.png" width="1536" />
-        <splash height="2732" src="resources/ios/splash/Default-Portrait@~ipadpro.png" width="2048" />
-        <splash height="1024" src="resources/ios/splash/Default-Portrait~ipad.png" width="768" />
-        <splash height="960" src="resources/ios/splash/Default@2x~iphone.png" width="640" />
-        <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
-        <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
+        <splash height="2732" src="resources/ios/splash/anyany@2x.png" width="2732" />
+        <splash height="1080" src="resources/ios/splash/appletv@1x.png" width="1920" />
+        <splash height="2160" src="resources/ios/splash/appletv@2x.png" width="3840" />
+        <splash height="748" src="resources/ios/splash/ipad5_landscape_without@1x.png" width="1024" />
+        <splash height="1496" src="resources/ios/splash/ipad5_landscape_without@2x.png" width="2048" />
+        <splash height="768" src="resources/ios/splash/ipad5_landscape@1x.png" width="1024" />
+        <splash height="1536" src="resources/ios/splash/ipad5_landscape@2x.png" width="2048" />
+        <splash height="1004" src="resources/ios/splash/ipad5_portrait_without@1x.png" width="768" />
+        <splash height="2008" src="resources/ios/splash/ipad5_portrait_without@2x.png" width="1536" />
+        <splash height="1024" src="resources/ios/splash/ipad5_portrait@1x.png" width="768" />
+        <splash height="2048" src="resources/ios/splash/ipad5_portrait@2x.png" width="1536" />
+        <splash height="768" src="resources/ios/splash/ipad7_landscape@1x.png" width="1024" />
+        <splash height="1536" src="resources/ios/splash/ipad7_landscape@2x.png" width="2048" />
+        <splash height="1024" src="resources/ios/splash/ipad7_portrait@1x.png" width="768" />
+        <splash height="2048" src="resources/ios/splash/ipad7_portrait@2x.png" width="1536" />
+        <splash height="1136" src="resources/ios/splash/iphone5_portrait_retina4@2x.png" width="640" />
+        <splash height="480" src="resources/ios/splash/iphone5_portrait@1x.png" width="320" />
+        <splash height="960" src="resources/ios/splash/iphone5_portrait@2x.png" width="640" />
+        <splash height="1136" src="resources/ios/splash/iphone7_portrait_retina4@2x.png" width="640" />
+        <splash height="960" src="resources/ios/splash/iphone7_portrait@2x.png" width="640" />
+        <splash height="1242" src="resources/ios/splash/iphone8_landscape_retina5@3x.png" width="2208" />
+        <splash height="1334" src="resources/ios/splash/iphone8_portrait_retina4@2x.png" width="750" />
+        <splash height="2208" src="resources/ios/splash/iphone8_portrait_retina5@3x.png" width="1242" />
+        <splash height="1125" src="resources/ios/splash/iphone11_landscape@3x.png" width="2436" />
+        <splash height="2436" src="resources/ios/splash/iphone11_portrait@3x.png" width="1125" />
+        <splash height="828" src="resources/ios/splash/iphone12_landscape@2x.png" width="1792" />
+        <splash height="1242" src="resources/ios/splash/iphone12_landscape@3x.png" width="2688" />
+        <splash height="1792" src="resources/ios/splash/iphone12_portrait@2x.png" width="828" />
+        <splash height="2688" src="resources/ios/splash/iphone12_portrait@3x.png" width="1242" />
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />

@@ -60,6 +60,6 @@ export class AcercaPage {
       zoom: 'no'
     }
 
-    const browser = this.inAppBrowser.create(this.urlBrowser, '_self', options);
+    const browser = this.inAppBrowser.create(this.urlBrowser, '_blank', options);
   }
 }
