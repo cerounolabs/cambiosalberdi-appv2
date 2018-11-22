@@ -1,8 +1,8 @@
 {
   "name": "CambiosAlberdiSA",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "version": "8.1",
+  "author": "CEROUNO Labs",
+  "homepage": "http://cerouno.com.py/",
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
