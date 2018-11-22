@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams, Platform } from 'ionic-angular';
 
+import { GiroDetallePage } from '../giro-detalle/giro-detalle';
 import { ApiProvider } from '../../providers/api/api';
 
 
@@ -50,5 +51,11 @@ export class GiroPage {
   }
 
   ionViewWillUnload() {
+  }
+
+  giroDetallePresent(ciudadID: any){
+    this.navCtrl.push(GiroDetallePage, {
+      data : ciudadID.target.id
+    });
   }
 }

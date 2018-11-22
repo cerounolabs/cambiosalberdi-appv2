@@ -13,6 +13,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { TableroPage } from '../pages/tablero/tablero';
 import { GiroPage } from '../pages/giro/giro';
+import { GiroDetallePage } from '../pages/giro-detalle/giro-detalle';
 import { ServicioPage } from '../pages/servicio/servicio';
 import { SucursalPage } from '../pages/sucursal/sucursal';
 import { AcercaPage } from '../pages/acerca/acerca';
@@ -27,6 +28,7 @@ import { PopoverComponent } from '../components/popover/popover';
     MyApp,
     TableroPage,
     GiroPage,
+    GiroDetallePage,
     ServicioPage,
     SucursalPage,
     AcercaPage,
@@ -45,6 +47,7 @@ import { PopoverComponent } from '../components/popover/popover';
     MyApp,
     TableroPage,
     GiroPage,
+    GiroDetallePage,
     ServicioPage,
     SucursalPage,
     AcercaPage,

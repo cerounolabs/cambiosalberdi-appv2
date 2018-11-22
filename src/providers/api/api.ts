@@ -141,10 +141,131 @@ export class ApiProvider {
     let temp     = this;
     temp.JSONApi = {
       "data" : [
-        {ciudad: 'Asunción', imagen: 'assets/giro/ima01.jpg'},
-        {ciudad: 'Ciudad del Este', imagen: 'assets/giro/ima02.jpg'},
-        {ciudad: 'Salto del Guairá', imagen: 'assets/giro/ima03.jpg'},
-        {ciudad: 'Encarnación', imagen: 'assets/giro/ima04.jpg'}
+        {id: 1, ciudad: 'Asunción', imagen: 'assets/giro/ima01.jpg'},
+        {id: 2, ciudad: 'Ciudad del Este', imagen: 'assets/giro/ima02.jpg'},
+        {id: 3, ciudad: 'Salto del Guairá', imagen: 'assets/giro/ima03.jpg'},
+        {id: 4, ciudad: 'Encarnación', imagen: 'assets/giro/ima04.jpg'}
+      ]
+    };
+
+    return new Promise(resolve => {
+      this.httpClient.get(this.URLApi + num, {headers:this.header , observe: 'body'}).subscribe(data => {
+        resolve(data);
+      }, err => {
+        resolve(temp.JSONApi);
+      });
+    });
+  }
+
+  getGiroDetalle() {
+    let num      = Math.floor(Math.random() * 1000000) + 1;
+    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getGiroDetalle.json?';
+    
+    let temp     = this;
+    temp.JSONApi = {
+      "asuncion_pyg":[
+          {id:'pyg_00',desde_hasta:'GUARANIES',destino_1:'CDE',destino_2:'ENC',destino_3:'SDG'},
+          {id:'pyg_01',desde_hasta:'1 a 2.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_02',desde_hasta:'2.000.001 a 5.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_03',desde_hasta:'5.000.001 a 10.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_04',desde_hasta:'10.000.001 a 20.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_05',desde_hasta:'20.000.001 a 30.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_06',desde_hasta:'30.000.001 a 40.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_07',desde_hasta:'40.000.001 a 50.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_08',desde_hasta:'50.000.001 a 100.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_09',desde_hasta:'100.000.001 a 150.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_10',desde_hasta:'150.000.001 a 200.000.000',destino_1:'0',destino_2:'0',destino_3:'0'}
+      ],
+      "asuncion_usd":[
+          {id:'usd_00',desde_hasta:'DOLAR',destino_1:'CDE',destino_2:'ENC',destino_3:'SDG'},
+          {id:'usd_01',desde_hasta:'1 a 1.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_02',desde_hasta:'1.001 a 2.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_03',desde_hasta:'2.001 a 5.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_04',desde_hasta:'5.001 a 10.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_05',desde_hasta:'10.001 a 20.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_06',desde_hasta:'20.001 a 30.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_07',desde_hasta:'30.001 a 40.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_08',desde_hasta:'40.001 a 50.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_09',desde_hasta:'50.001 a 100.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_10',desde_hasta:'100.001 a 200.000',destino_1:'0',destino_2:'0',destino_3:'0'}
+      ],
+      "ciudaddeleste_pyg":[
+          {id:'pyg_00',desde_hasta:'GUARANIES',destino_1:'ASU',destino_2:'ENC',destino_3:'SDG'},
+          {id:'pyg_01',desde_hasta:'1 a 2.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_02',desde_hasta:'2.000.001 a 5.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_03',desde_hasta:'5.000.001 a 10.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_04',desde_hasta:'10.000.001 a 20.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_05',desde_hasta:'20.000.001 a 30.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_06',desde_hasta:'30.000.001 a 40.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_07',desde_hasta:'40.000.001 a 50.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_08',desde_hasta:'50.000.001 a 100.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_09',desde_hasta:'100.000.001 a 150.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_10',desde_hasta:'150.000.001 a 200.000.000',destino_1:'0',destino_2:'0',destino_3:'0'}
+      ],
+      "ciudaddeleste_usd":[
+          {id:'usd_00',desde_hasta:'DOLAR',destino_1:'ASU',destino_2:'ENC',destino_3:'SDG'},
+          {id:'usd_01',desde_hasta:'1 a 1.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_02',desde_hasta:'1.001 a 2.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_03',desde_hasta:'2.001 a 5.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_04',desde_hasta:'5.001 a 10.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_05',desde_hasta:'10.001 a 20.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_06',desde_hasta:'20.001 a 30.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_07',desde_hasta:'30.001 a 40.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_08',desde_hasta:'40.001 a 50.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_09',desde_hasta:'50.001 a 100.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_10',desde_hasta:'100.001 a 200.000',destino_1:'0',destino_2:'0',destino_3:'0'}
+      ],
+      "encarnacion_pyg":[
+          {id:'pyg_00',desde_hasta:'GUARANIES',destino_1:'ASU',destino_2:'CDE',destino_3:'SDG'},
+          {id:'pyg_01',desde_hasta:'1 a 2.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_02',desde_hasta:'2.000.001 a 5.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_03',desde_hasta:'5.000.001 a 10.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_04',desde_hasta:'10.000.001 a 20.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_05',desde_hasta:'20.000.001 a 30.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_06',desde_hasta:'30.000.001 a 40.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_07',desde_hasta:'40.000.001 a 50.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_08',desde_hasta:'50.000.001 a 100.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_09',desde_hasta:'100.000.001 a 150.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_10',desde_hasta:'150.000.001 a 200.000.000',destino_1:'0',destino_2:'0',destino_3:'0'}
+      ],
+      "encarnacion_usd":[
+          {id:'usd_00',desde_hasta:'DOLAR',destino_1:'ASU',destino_2:'CDE',destino_3:'SDG'},
+          {id:'usd_01',desde_hasta:'1 a 1.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_02',desde_hasta:'1.001 a 2.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_03',desde_hasta:'2.001 a 5.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_04',desde_hasta:'5.001 a 10.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_05',desde_hasta:'10.001 a 20.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_06',desde_hasta:'20.001 a 30.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_07',desde_hasta:'30.001 a 40.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_08',desde_hasta:'40.001 a 50.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_09',desde_hasta:'50.001 a 100.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_10',desde_hasta:'100.001 a 200.000',destino_1:'0',destino_2:'0',destino_3:'0'}
+      ],
+      "saltodelguaira_pyg":[
+          {id:'pyg_00',desde_hasta:'GUARANIES',destino_1:'ASU',destino_2:'CDE',destino_3:'ENC'},
+          {id:'pyg_01',desde_hasta:'1 a 2.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_02',desde_hasta:'2.000.001 a 5.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_03',desde_hasta:'5.000.001 a 10.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_04',desde_hasta:'10.000.001 a 20.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_05',desde_hasta:'20.000.001 a 30.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_06',desde_hasta:'30.000.001 a 40.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_07',desde_hasta:'40.000.001 a 50.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_08',desde_hasta:'50.000.001 a 100.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_09',desde_hasta:'100.000.001 a 150.000.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'pyg_10',desde_hasta:'150.000.001 a 200.000.000',destino_1:'0',destino_2:'0',destino_3:'0'}
+      ],
+      "saltodelguaira_usd":[
+          {id:'usd_00',desde_hasta:'DOLAR',destino_1:'ASU',destino_2:'CDE',destino_3:'ENC'},
+          {id:'usd_01',desde_hasta:'1 a 1.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_02',desde_hasta:'1.001 a 2.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_03',desde_hasta:'2.001 a 5.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_04',desde_hasta:'5.001 a 10.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_05',desde_hasta:'10.001 a 20.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_06',desde_hasta:'20.001 a 30.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_07',desde_hasta:'30.001 a 40.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_08',desde_hasta:'40.001 a 50.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_09',desde_hasta:'50.001 a 100.000',destino_1:'0',destino_2:'0',destino_3:'0'},
+          {id:'usd_10',desde_hasta:'100.001 a 200.000',destino_1:'0',destino_2:'0',destino_3:'0'}
       ]
     };
 
