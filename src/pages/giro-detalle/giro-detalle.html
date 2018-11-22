@@ -1,0 +1,45 @@
+<!--
+  Generated template for the GiroDetallePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Desde {{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="container">
+  <div style="width:100%;">
+    <ion-list>
+      <ion-grid>
+        <ion-row align-items-center *ngFor="let item of JSONApiPYG">
+          <ion-col #{{item.desde_hasta}} col-12 style="color: #ffffff; background-color: #15A346;" *ngIf="item.id == 'pyg_00'"> {{item.desde_hasta}} </ion-col>
+          <ion-col #{{item.destino_1}}   col-4  style="color: #ffffff; background-color: #15A346;" *ngIf="item.id == 'pyg_00'"> {{item.destino_1}} </ion-col>
+          <ion-col #{{item.destino_2}}   col-4  style="color: #ffffff; background-color: #15A346;" *ngIf="item.id == 'pyg_00'"> {{item.destino_2}} </ion-col>
+          <ion-col #{{item.destino_3}}   col-4  style="color: #ffffff; background-color: #15A346;" *ngIf="item.id == 'pyg_00'"> {{item.destino_3}} </ion-col>
+
+          <ion-col #{{item.desde_hasta}} col-12 *ngIf="item.id !== 'pyg_00'"> {{item.desde_hasta}} </ion-col>
+          <ion-col #{{item.destino_1}}   col-4  *ngIf="item.id !== 'pyg_00'"> {{item.destino_1}} </ion-col>
+          <ion-col #{{item.destino_2}}   col-4  *ngIf="item.id !== 'pyg_00'"> {{item.destino_2}} </ion-col>
+          <ion-col #{{item.destino_3}}   col-4  *ngIf="item.id !== 'pyg_00'"> {{item.destino_3}} </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row align-items-center *ngFor="let item of JSONApiUSD">
+          <ion-col #{{item.desde_hasta}} col-12 style="color:#ffffff; background-color:#15A346;" *ngIf="item.id == 'usd_00'"> {{item.desde_hasta}} </ion-col>
+          <ion-col #{{item.destino_1}}   col-4  style="color:#ffffff; background-color:#15A346;" *ngIf="item.id == 'usd_00'"> {{item.destino_1}} </ion-col>
+          <ion-col #{{item.destino_2}}   col-4  style="color:#ffffff; background-color:#15A346;" *ngIf="item.id == 'usd_00'"> {{item.destino_2}} </ion-col>
+          <ion-col #{{item.destino_3}}   col-4  style="color:#ffffff; background-color:#15A346;" *ngIf="item.id == 'usd_00'"> {{item.destino_3}} </ion-col>
+
+          <ion-col #{{item.desde_hasta}} col-12 *ngIf="item.id !== 'usd_00'"> {{item.desde_hasta}} </ion-col>
+          <ion-col #{{item.destino_1}}   col-4  *ngIf="item.id !== 'usd_00'"> {{item.destino_1}} </ion-col>
+          <ion-col #{{item.destino_2}}   col-4  *ngIf="item.id !== 'usd_00'"> {{item.destino_2}} </ion-col>
+          <ion-col #{{item.destino_3}}   col-4  *ngIf="item.id !== 'usd_00'"> {{item.destino_3}} </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+  </div>
+</ion-content>

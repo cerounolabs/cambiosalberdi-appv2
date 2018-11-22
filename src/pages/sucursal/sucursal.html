@@ -15,15 +15,24 @@
     <div style="position: relative">
       <img src="{{item.imagen}}">
     </div>
+
     <ion-item>
-        <ion-icon color="danger" item-start name='ios-pin'></ion-icon>
-        <h2>{{item.direccion}} - {{item.ciudad}}</h2>
-        <p></p>
-      </ion-item>
+      <ion-icon color="warning" item-start name='ios-home'></ion-icon>
+      <h2>{{item.sucursal}}</h2>
+      <p></p>
+    </ion-item>
+    
+    <ion-item>
+      <ion-icon color="danger" item-start name='ios-pin'></ion-icon>
+      <h2>{{item.direccion}} - {{item.ciudad}}</h2>
+      <p></p>
+    </ion-item>
+    
     <ion-item>
       <ion-icon color="secondary" item-start name='ios-call'></ion-icon>
       <h2>{{item.telefono}}</h2>
     </ion-item>
+    
     <ion-item>
       <ion-icon color="primary" item-start name='ios-stopwatch'></ion-icon>
       <h2></h2>

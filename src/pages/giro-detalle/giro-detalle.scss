@@ -1,0 +1,48 @@
+page-giro-detalle {
+    ion-content ion-row {
+        background-color: #ffffff;
+        margin-bottom: 5px;
+        font-size: 1.8rem;
+    }
+
+    ion-footer ion-row {
+        background-color: #ffffff;
+        color: #00944C;
+        font-weight:bold;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .cotizacion-normal{
+        color: #000000;
+        background: rgba(224, 224, 224, 0.5);
+        padding: 10px 0px !important;
+    }
+
+    .cotizacion-baja{
+        color: #00944C;
+        background: rgba(204, 255, 204, 0.5);
+        padding: 10px 0px !important;
+        font-weight: bold;
+    }
+
+    .cotizacion-sube{
+        color: #990000;
+        background: rgba(254, 204, 204, 0.5);
+        padding: 10px 0px !important;
+        font-weight: bold;
+    }
+
+    [col-4]{
+        font-size: 2rem;
+        padding: 0px 5px;
+        text-align: center;
+    }
+
+    [col-12]{
+        color: #00944C;
+        font-size: 1.5rem;
+        padding: 0px 5px;
+        text-align: center;
+    }
+}

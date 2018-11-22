@@ -10,9 +10,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="container card-background-page">
+<ion-content class="container card-background-page" (click)="giroDetallePresent($event);">
   <ion-card  *ngFor="let item of JSONApi">
-    <img src="{{item.imagen}}"/>
+    <img id="{{item.id}}" src="{{item.imagen}}"/>
     <div class="card-title">{{item.ciudad}}</div>
   </ion-card>
 </ion-content>
