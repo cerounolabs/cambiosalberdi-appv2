@@ -98,8 +98,10 @@ export class TableroPage {
   ionViewWillUnload() {
   }
 
-  calculadoraPresent(){
-    this.navCtrl.push(CalculadoraPage);
+  openCalculadora(){
+    this.navCtrl.push(CalculadoraPage, {
+      data : this.sucursalSelect
+    });
   }
 
   animationExchange(monedaView, monedaClass) {
