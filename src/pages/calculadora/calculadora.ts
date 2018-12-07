@@ -140,10 +140,10 @@ export class CalculadoraPage {
     });
   }
 
-  calcCambio(event){
-    let monCam  = event.target.parentNode.id;
-    let impCam  = parseInt(event.target.value.replace(/\./gi, ''));
-
+  onBlurCalcCambio(event){
+    let monCam  = event._elementRef.nativeElement.id;
+    let impCam  = parseInt(event._value.replace(/\./gi, ''));
+    
     let usdCom  = this.JSONApi[0].compra.replace(/\./gi, '');
     let usdVen  = this.JSONApi[0].venta.replace(/\./gi, '');
     let brlCom  = this.JSONApi[1].compra.replace(/\./gi, '');
@@ -211,8 +211,46 @@ export class CalculadoraPage {
         this.brl_value  = this.formatNumber(((impCam * 0).toFixed(2)).replace(/\./gi, ','));
         this.eur_value  = this.formatNumber(((impCam * 0).toFixed(2)).replace(/\./gi, ','));
         break;
-      
-      default:
+    }
+  }
+
+  onFocusCalcCambio(event) {
+    let monCam  = event._elementRef.nativeElement.id;
+
+    switch (monCam) {
+      case 'pyg_value':
+        this.usd_value  = 0;
+        this.brl_value  = 0;
+        this.eur_value  = 0;
+        this.ars_value  = 0;
+        break;
+
+      case 'usd_value':
+        this.pyg_value  = 0;
+        this.brl_value  = 0;
+        this.eur_value  = 0;
+        this.ars_value  = 0;
+        break;
+
+      case 'brl_value':
+        this.pyg_value  = 0;
+        this.usd_value  = 0;
+        this.eur_value  = 0;
+        this.ars_value  = 0;
+        break;
+
+      case 'eur_value':
+        this.pyg_value  = 0;
+        this.usd_value  = 0;
+        this.brl_value  = 0;
+        this.ars_value  = 0;
+        break;
+
+      case 'ars_value':
+        this.pyg_value  = 0;
+        this.usd_value  = 0;
+        this.brl_value  = 0;
+        this.eur_value  = 0;
         break;
     }
   }

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="8" id="com.cambiosalberdi.cambiosalberdi" ios-CFBundleVersion="8" version="8.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="8" id="com.cambiosalberdi.cambiosalberdi" ios-CFBundleVersion="9" version="8.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CambiosAlberdiSA</name>
     <description>Cambios Alberdi S.A. Aplicacion movil v2</description>
     <author email="christian@cerouno.com.py" href="https://cerouno.com.py/">CEROUNO Labs</author>
