@@ -174,7 +174,7 @@ export class CalculadoraPage {
     eurUCom = eurUCom.replace(/\,/gi, '.');
     eurUVen = eurUVen.replace(/\,/gi, '.');
     arsUCom = arsUCom.replace(/\,/gi, '.');
-    arsUVen = arsUVen.replace(/\,/gi, '.');    
+    arsUVen = arsUVen.replace(/\,/gi, '.');
 
     switch (monCam) {
       case 'pyg_value':
@@ -215,7 +215,19 @@ export class CalculadoraPage {
   }
 
   onFocusCalcCambio(event) {
-    let monCam  = event._elementRef.nativeElement.id;
+    let monCam      = event._elementRef.nativeElement.id;
+    
+    let idPYG       = document.getElementById('pyg_mon');
+    let idUSD       = document.getElementById('usd_mon');
+    let idBRL       = document.getElementById('brl_mon');
+    let idEUR       = document.getElementById('eur_mon');
+    let idARS       = document.getElementById('ars_mon');
+
+    idPYG.innerHTML = ' Guaraní ';
+    idUSD.innerHTML = ' Dólar ';
+    idBRL.innerHTML = ' Real ';
+    idEUR.innerHTML = ' Euro ';
+    idARS.innerHTML = ' Peso ';
 
     switch (monCam) {
       case 'pyg_value':
@@ -223,6 +235,7 @@ export class CalculadoraPage {
         this.brl_value  = 0;
         this.eur_value  = 0;
         this.ars_value  = 0;
+        idPYG.innerHTML = ' Guaraní  <span style="color:#00944C; font-weight:bold;">(TENGO)</span>';
         break;
 
       case 'usd_value':
@@ -230,6 +243,7 @@ export class CalculadoraPage {
         this.brl_value  = 0;
         this.eur_value  = 0;
         this.ars_value  = 0;
+        idUSD.innerHTML = ' Dólar  <span style="color:#00944C; font-weight:bold;">(TENGO)</span>';
         break;
 
       case 'brl_value':
@@ -237,6 +251,7 @@ export class CalculadoraPage {
         this.usd_value  = 0;
         this.eur_value  = 0;
         this.ars_value  = 0;
+        idBRL.innerHTML = ' Real  <span style="color:#00944C; font-weight:bold;">(TENGO)</span>';
         break;
 
       case 'eur_value':
@@ -244,6 +259,7 @@ export class CalculadoraPage {
         this.usd_value  = 0;
         this.brl_value  = 0;
         this.ars_value  = 0;
+        idEUR.innerHTML = ' Euro  <span style="color:#00944C; font-weight:bold;">(TENGO)</span>';
         break;
 
       case 'ars_value':
@@ -251,6 +267,7 @@ export class CalculadoraPage {
         this.usd_value  = 0;
         this.brl_value  = 0;
         this.eur_value  = 0;
+        idARS.innerHTML = ' Peso  <span style="color:#00944C; font-weight:bold;">(TENGO)</span>';
         break;
     }
   }
