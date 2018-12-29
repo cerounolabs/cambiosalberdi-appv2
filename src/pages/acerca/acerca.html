@@ -12,18 +12,32 @@
 
 <ion-content class="container">
   <ion-card class="container-center" *ngFor="let item of JSONApi">
+    <p class="nosotros">
+        CAMBIOS ALBERDI S.A., es una casa cambiaria creada en el año 1989. Se ha transformado su razón social, pasando a ser una Sociedad Anónima, en el año 1992 y su funcionamiento como Casa de Cambios, autorizado por Resolución N°1, Acta N°35, del Banco Central del Paraguay. Desde su creación, nuestra empresa ha seguido un crecimiento progresivo y equilibrado, hecho que nos ha permitido aumentar la cantidad de sucursales y agencias que poseemos en la actualidad.
+        <br><br>
+        Nuestra sede principal se encuentra en Asunción, capital del Paraguay. Contamos con una Sucursal y cinco agencias en Ciudad del Este, en la ciudad de Salto del Guaira poseemos una Sucursal y una Agencia, en la ciudad de Encarnación contamos con una Sucursal; contamos además con una Sucursal en Villa Morra y una Agencia en San Lorenzo.
+        <br><br>
+        Nuestra visión es: “Ser líder en el mercado cambiario” y nuestra misión es: “Ofrecer a nuestros clientes confianza y seguridad”. Actualmente estamos abocados en establecer nuevas alianzas estratégicas con corresponsales del extranjero y en la búsqueda de nuevos mercados que posibiliten brindar a nuestros clientes alta calidad y solidez corporativa.
+    </p>
+
     <img class="container-center-img" src="{{item.imagen}}">
+    
     <p> 
-      <span class="copyright">&copy; Todos los derechos reservados 2018. V8.2</span>
+      <span class="copyright">&copy; Todos los derechos reservados 2019. V8.3</span>
     </p>
   </ion-card>
-
-  <ion-card class="container-footer" (click)="openWebPage()">
-    <p> 
-      <span class="develop">Desarrollador por:</span>
-      <br>
-      <span class="develop" style="font-weight: bold;">CEROUNO Labs</span>
-    </p>
-  </ion-card>
-
 </ion-content>
+
+<ion-footer class="container-footer"  (click)="openWebPage()">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <p style="margin: 0px;"> 
+          <span class="develop">Desarrollador por:</span>
+          <br>
+          <span class="develop" style="font-weight: bold;">CEROUNO Labs</span>
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
