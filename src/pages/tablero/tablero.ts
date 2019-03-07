@@ -25,17 +25,17 @@ export class TableroPage {
   sucursalSelect : string = 'ASU';
   updateLast : string     = '00/00/0000 00:00:00';
   auxIma_1: string        = '';
-  beforeIma_1: string     = 'assets/flag/dolar.png';
-  afterIma_1: string      = 'assets/flag/real.png';
+  beforeIma_1: string     = 'assets/flag/dolar_estadounidense.png';
+  afterIma_1: string      = 'assets/flag/real_brasileno.png';
   auxIma_2: string        = '';
-  beforeIma_2: string     = 'assets/flag/dolar.png';
+  beforeIma_2: string     = 'assets/flag/dolar_estadounidense.png';
   afterIma_2: string      = 'assets/flag/euro.png';
   auxIma_3: string        = '';
-  beforeIma_3: string     = 'assets/flag/dolar.png';
-  afterIma_3: string      = 'assets/flag/peso.png';
+  beforeIma_3: string     = 'assets/flag/dolar_estadounidense.png';
+  afterIma_3: string      = 'assets/flag/peso_argentino.png';
   auxIma_4: string        = '';
-  beforeIma_4: string     = 'assets/flag/dolar.png';
-  afterIma_4: string      = 'assets/flag/real.png';
+  beforeIma_4: string     = 'assets/flag/dolar_estadounidense.png';
+  afterIma_4: string      = 'assets/flag/real_brasileno.png';
 
   imageInterval;
   loadingInterval;
@@ -160,7 +160,7 @@ export class TableroPage {
         case 'ASU': {
           this.title      = 'Casa Matriz';
           this.JSONApi    = data['asuncion'];
-          this.updateLast = data['asuncion'][9].compra + ' ' + data['asuncion'][9].venta;
+          this.updateLast = data['asuncion'][16].compra + ' ' + data['asuncion'][16].venta;
           break;
         }
 

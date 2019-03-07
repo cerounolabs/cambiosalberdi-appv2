@@ -29,23 +29,23 @@
           <ion-col #pyg_imp col-6 id="pyg_imp"><ion-input id="pyg_value" [(ngModel)]="pyg_value" #myBudget="ngModel" (input)="pyg_value = formatNumber(pyg_value)" (ionBlur)="onBlurCalcCambio($event)" (ionFocus)="onFocusCalcCambio($event)" class="cotizacion-normal" pattern="^[$\-\s]*[\d\.]*?([\,]\d{0,10})?\s*$"></ion-input></ion-col>
         </ion-row>
         <ion-row align-items-center>
-          <ion-col #usd_cod col-2 id="usd_cod"><img style="width:50px; height:50px;" src="assets/flag/dolar.png" /></ion-col>
-          <ion-col #usd_mon col-4 id="usd_mon"> Dólar </ion-col>
+          <ion-col #usd_cod col-2 id="usd_cod"><img style="width:50px; height:50px;" src="assets/flag/dolar_estadounidense.png" /></ion-col>
+          <ion-col #usd_mon col-4 id="usd_mon"> Dólar Americano </ion-col>
           <ion-col #usd_imp col-6 id="usd_imp"><ion-input id="usd_value" [(ngModel)]="usd_value" #myBudget="ngModel" (input)="usd_value = formatNumber(usd_value)" (ionBlur)="onBlurCalcCambio($event)" (ionFocus)="onFocusCalcCambio($event)" class="cotizacion-normal" pattern="^[$\-\s]*[\d\.]*?([\,]\d{0,10})?\s*$"></ion-input></ion-col>
         </ion-row>
         <ion-row align-items-center>
-          <ion-col #brl_cod col-2 id="brl_cod"><img style="width:50px; height:50px;" src="assets/flag/real.png" /></ion-col>
-          <ion-col #brl_mon col-4 id="brl_mon"> Real </ion-col>
+          <ion-col #brl_cod col-2 id="brl_cod"><img style="width:50px; height:50px;" src="assets/flag/real_brasileno.png" /></ion-col>
+          <ion-col #brl_mon col-4 id="brl_mon"> Real Brasileño </ion-col>
           <ion-col #brl_imp col-6 id="brl_imp"><ion-input id="brl_value" [(ngModel)]="brl_value" #myBudget="ngModel" (input)="brl_value = formatNumber(brl_value)" (ionBlur)="onBlurCalcCambio($event)" (ionFocus)="onFocusCalcCambio($event)" class="cotizacion-normal" pattern="^[$\-\s]*[\d\.]*?([\,]\d{0,10})?\s*$"></ion-input></ion-col>
         </ion-row>
         <ion-row align-items-center>
           <ion-col #eur_cod col-2 id="eur_cod"><img style="width:50px; height:50px;" src="assets/flag/euro.png" /></ion-col>
-          <ion-col #eur_mon col-4 id="eur_mon"> Euro </ion-col>
+          <ion-col #eur_mon col-4 id="eur_mon"> EURO </ion-col>
           <ion-col #eur_imp col-6 id="eur_imp"><ion-input id="eur_value" [(ngModel)]="eur_value" #myBudget="ngModel" (input)="eur_value = formatNumber(eur_value)" (ionBlur)="onBlurCalcCambio($event)" (ionFocus)="onFocusCalcCambio($event)" class="cotizacion-normal" pattern="^[$\-\s]*[\d\.]*?([\,]\d{0,10})?\s*$"></ion-input></ion-col>
         </ion-row>
         <ion-row align-items-center>
-          <ion-col #ars_cod col-2 id="ars_cod"><img style="width:50px; height:50px;" src="assets/flag/peso.png" /></ion-col>
-          <ion-col #ars_mon col-4 id="ars_mon"> Peso </ion-col>
+          <ion-col #ars_cod col-2 id="ars_cod"><img style="width:50px; height:50px;" src="assets/flag/peso_argentino.png" /></ion-col>
+          <ion-col #ars_mon col-4 id="ars_mon"> Peso Argentino </ion-col>
           <ion-col #ars_imp col-6 id="ars_imp"><ion-input id="ars_value" [(ngModel)]="ars_value" #myBudget="ngModel" (input)="ars_value = formatNumber(ars_value)" (ionBlur)="onBlurCalcCambio($event)" (ionFocus)="onFocusCalcCambio($event)" class="cotizacion-normal" pattern="^[$\-\s]*[\d\.]*?([\,]\d{0,10})?\s*$"></ion-input></ion-col>
         </ion-row>
       </ion-grid>
