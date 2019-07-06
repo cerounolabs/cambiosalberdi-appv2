@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="8" id="com.cambiosalberdi.cambiosalberdi" ios-CFBundleVersion="12" version="8.3.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="8" id="com.cambiosalberdi.cambiosalberdi" ios-CFBundleVersion="13" version="8.3.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>CambiosAlberdiSA</name>
     <description>Cambios Alberdi S.A. Aplicacion Móvil v2</description>
     <author email="christian@cerouno.com.py" href="https://cerouno.com.py/">CEROUNO Labs</author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-intent href="http://www.cambiosalberdi.com" />
+    <allow-intent href="https://www.cambiosalberdi.com" />
     <allow-intent href="https://www.cambiosalberdi.com" />
     <allow-intent href="tel:+59521447003" />
     <allow-intent href="sms:*" />
@@ -22,7 +22,6 @@
     <preference name="SplashScreenBackgroundColor" value="#15A346" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
         <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />

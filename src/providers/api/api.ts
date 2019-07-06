@@ -35,7 +35,7 @@ export class ApiProvider {
 
   getTablero() {
     let num     = Math.floor(Math.random() * 1000000) + 1;
-    this.URLApi = 'http://www.cambiosalberdi.com/ws/getTablero2.json?';
+    this.URLApi = 'https://cambiosalberdi.com/ws/getTablero2.json?';
 
     let temp     = this;
     temp.JSONApi = {
@@ -136,7 +136,7 @@ export class ApiProvider {
 
   getGiro() {
     let num      = Math.floor(Math.random() * 1000000) + 1;
-    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getGiro.json?';
+    this.URLApi  = 'https://cambiosalberdi.com/ws/getGiro.json?';
     
     let temp     = this;
     temp.JSONApi = {
@@ -159,7 +159,7 @@ export class ApiProvider {
 
   getGiroDetalle() {
     let num      = Math.floor(Math.random() * 1000000) + 1;
-    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getGiroDetalle.json?';
+    this.URLApi  = 'https://cambiosalberdi.com/ws/getGiroDetalle.json?';
     
     let temp     = this;
     temp.JSONApi = {
@@ -280,7 +280,7 @@ export class ApiProvider {
 
   getServicio() {
     let num      = Math.floor(Math.random() * 1000000) + 1;
-    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getServicio.json?';
+    this.URLApi  = 'https://cambiosalberdi.com/ws/getServicio.json?';
 
     let temp     = this;
     temp.JSONApi = {
@@ -305,7 +305,7 @@ export class ApiProvider {
 
   getSucursal() {
     let num      = Math.floor(Math.random() * 1000000) + 1;
-    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getSucursal.json?';
+    this.URLApi  = 'https://cambiosalberdi.com/ws/getSucursal.json?';
 
     let temp     = this;
     temp.JSONApi = {
@@ -336,7 +336,7 @@ export class ApiProvider {
 
   getLogo() {
     let num      = Math.floor(Math.random() * 1000000) + 1;
-    this.URLApi  = 'http://www.cambiosalberdi.com/ws/getLogo.json?';
+    this.URLApi  = 'https://cambiosalberdi.com/ws/getLogo.json?';
 
     let temp     = this;
     temp.JSONApi = {
